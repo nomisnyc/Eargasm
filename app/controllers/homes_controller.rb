@@ -18,7 +18,7 @@ class HomesController < ApplicationController
 
 
   def create
-    @home = Home.new(params[:home])
+    @home = Home.create(params[:home])
     redirect_to(homes_path)
   end
 
