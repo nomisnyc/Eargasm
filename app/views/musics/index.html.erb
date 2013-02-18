@@ -1,0 +1,18 @@
+<h1>Listing musics</h1>
+
+
+<% @musics.each do |music| %>
+<li>
+  <ul>
+    <li><%= link_to(music.name, music) %> </li>
+    <li><%= music.song_name %> </li>
+    <li><%= music.url%> </li>
+    <li><%= music.post_by%>
+
+  </li>
+
+  <% (c,d)= row['url'].split('=',2) %>
+
+
+  <iframe id= 'vid' width="400" height="225" src="http://www.youtube.com/embed/<%= d %>" frameborder="0" allowfullscreen></iframe>
+  <% end %>
