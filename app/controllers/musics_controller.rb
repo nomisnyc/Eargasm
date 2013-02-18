@@ -19,7 +19,7 @@ class MusicsController < ApplicationController
   end
 
   def create
-    @music = Music.new(params[:music])
+    music = Music.create(params[:music])
     redirect_to(musics_path)
 
   end
@@ -31,9 +31,9 @@ class MusicsController < ApplicationController
   end
 
   def destroy
-    @music = Music.find(params[:id])
-    @music.destroy
-    redirect_to(music_path)
+    music = Music.find(params[:id])
+    music.delete
+    redirect_to(musics_path)
 
   end
 end

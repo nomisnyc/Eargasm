@@ -8,3 +8,34 @@
 
 <%= link_to 'Edit', edit_music_path(@music) %> |
 <%= link_to 'Back', musics_path %>
+  <%= link_to 'Delete', @music, :method => :delete %>
+
+
+  <% Nestling.api_key = "DBBDMGNYLR3WRPCUX" %>
+
+<% c = Nestling.new %>
+
+<% p = c.song.search(:artist => @music.name, :bucket => :song_hotttnesss)
+
+  a= []
+
+  p.each { |i| a.push([i[:title], i[:song_hotttnesss]])}
+  #scapes out those two categories.
+  d=[]
+  a.each { |i| d.push(i) if i[1]}
+    #takes out nil
+
+    %>
+
+    <% topsongs = d.sort_by {|i| i[1]}.reverse.take(5) %>
+    <ol>
+      <h2>  Top Songs of <%= @music.name %> </h2>
+     <% topsongs.each do |i| %>
+      <li> <%= i[0] %>  Hotness Rating: <%= i[1] %></li>
+
+    <% end %>
+
+    <ol>
+
+
+
