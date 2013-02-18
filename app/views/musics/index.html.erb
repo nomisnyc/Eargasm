@@ -2,16 +2,16 @@
 
 
 <% @musics.each do |music| %>
-<li>
   <ul>
     <li><%= link_to(music.name, music) %> </li>
     <li><%= music.song_name %> </li>
     <li><%= music.url%> </li>
     <li><%= music.post_by%>
+    <li><%= link_to 'Delete', music, :method => :delete %>
+      <%= link_to 'Edit', edit_music_path(music) %></li>
+  </ul>
 
-  </li>
-
-  <% (c,d)= row['url'].split('=',2) %>
+  <% (c,d)= music.url.split('=',2) %>
 
 
   <iframe id= 'vid' width="400" height="225" src="http://www.youtube.com/embed/<%= d %>" frameborder="0" allowfullscreen></iframe>
