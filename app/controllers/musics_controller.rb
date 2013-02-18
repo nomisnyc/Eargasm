@@ -19,7 +19,8 @@ class MusicsController < ApplicationController
   end
 
   def create
-    music = Music.create(params[:music])
+    @music = Music.create(params[:music])
+
     redirect_to(musics_path)
 
   end

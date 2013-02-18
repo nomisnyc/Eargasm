@@ -1,14 +1,16 @@
-<h1>Listing musics</h1>
+<h1>What's Been on Repeat</h1>
 
 
 <% @musics.each do |music| %>
-<li>
   <ul>
     <li><%= link_to(music.name, music) %> </li>
     <li><%= music.song_name %> </li>
     <li>Posted by: <%= music.post_by%>
 
   </li>
+    <li><%= link_to 'Delete', music, :method => :delete %>
+      <%= link_to 'Edit', edit_music_path(music) %></li>
+  </ul>
 
   <% (c,d)= music.url.split('=',2) %>
 

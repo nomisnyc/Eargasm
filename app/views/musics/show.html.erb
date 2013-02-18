@@ -6,6 +6,7 @@
 </p>
 
 
+
 <%= link_to 'Edit', edit_music_path(@music) %> |
 <%= link_to 'Back', musics_path %>
   <%= link_to 'Delete', @music, :method => :delete %>
@@ -31,11 +32,10 @@
     <ol>
       <h2>  Top Songs of <%= @music.name %> </h2>
      <% topsongs.each do |i| %>
-      <li> <%= i[0] %>  Hotness Rating: <%= i[1] %></li>
+      <li> <em><%= i[0] %></em>-        Hotness Rating: <%= i[1] %></li>
 
     <% end %>
 
     <ol>
-
 
 
