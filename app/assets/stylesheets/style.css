@@ -3,7 +3,8 @@
 body
 {width: 75%;
 margin: 0 auto;
-background-color: #343838;
+background-image: url('background.png');
+background-repeat: repeat;
 color: #00DFFC;
 font-size: 20px;
 font-family: 'Varela Round', sans-serif;
@@ -29,6 +30,7 @@ padding: 2px 4px;
 border-radius: 15px;
 border-color: #ffffff;
 border-style:solid;
+border-width: 6px;
 width: 90%;
 height: 150px;
 background-image: url('banner2.jpg')
@@ -55,13 +57,13 @@ h1 {
   float: left;
   font-size: 80px;
   webkit-text-stroke: 4px white;
-  color: #ff9900;
+  color: #00DFFC;
   text-shadow:
-       3px 3px 0 #000,
-     -1px -1px 0 #000,
-      1px -1px 0 #000,
-      -1px 1px 0 #000,
-       1px 1px 0 #000;
+       3px 3px 0 #343838,
+     -1px -1px 0 #343838,
+      1px -1px 0 #343838,
+      -1px 1px 0 #343838,
+       1px 1px 0 #343838;
 }
 
 h2
@@ -82,7 +84,8 @@ padding: 0 0;
 {
   float: right;
   width: 500px;
-  background-color: #343838;
+  background-image: url('background.png');
+background-repeat: repeat;
 magin: 2px 2px;
 padding: 2px 4px;
 border-radius: 15px;
@@ -113,9 +116,14 @@ p
 ol
 {float:;
   width: 700px;
+
+
 }
 
 .show
-{width: 500px;
+{width: 650px;
   float: left;
-}
+  text-align: left;
+  white-space : pre-wrap;
+
+  }

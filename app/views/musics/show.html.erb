@@ -24,7 +24,7 @@
      <% topsongs.each do |i| %>
       <li> <em><%= i[0] %></em>-        Hotness Rating: <%= i[1] %></li>
 
-    <% end %><br><hr/>
+    <% end %><br><hr/><div class="show">
 
     <% api_key= 'DBBDMGNYLR3WRPCUX'
       artist = @music.name.gsub(' ', '+')
@@ -40,7 +40,7 @@
  <% largestbio.split("\r\n").each do |paragraph| %>
 <%= paragraph %>
  <% end %>
-</div></div></p>
+</div></div></div></p>
 
     <ol>
 
