@@ -17,7 +17,7 @@ a:hover {color:#FF00FF;}  /* mouse over link */
 a:visited {color:#008C9E}
 a:active {color:#008C9E;}  /* selected link */
 
-{color:#000000;}
+/*{color:#000000;}*/
 
 nav {
 
@@ -49,6 +49,10 @@ nav li
   padding: 10px 5px;
   width: 150px;
   color: #005F6B;
+
+}
+nav ul li a:link {
+  color: red
 }
 
 h1 {

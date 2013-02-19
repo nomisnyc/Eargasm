@@ -1,5 +1,5 @@
 <% content_for :header do %>
-  eargasim
+  eargasm
 <% end %>
 
 
@@ -11,7 +11,7 @@
 <div class="container">
 <% @musics.each do |music| %>
   <ul>
-    <div class="main"><li>Rank:  <%= music.rating %>
+    <div class="main"><li>Prop:  <%= music.rating %>
       <form method = 'post' action = 'musics/counter/<%= music.id %>'>
       <button> </button>
       </form></li>
