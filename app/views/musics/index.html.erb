@@ -1,37 +1,27 @@
 <% content_for :header do %>
-  main h1 text
+  Top Hits
 <% end %>
 
-
-<div class="container">
-
    <%#<% @m = @musics.sort_by! {|i| i.rating}  %>
-
-
+<div class="container">
 <% @musics.each do |music| %>
   <ul>
-
-
-    <li><%= music.rating %>
+    <div class="main"><li>Rank:  <%= music.rating %>
       <form method = 'post' action = 'musics/counter/<%= music.id %>'>
         <button>+</button>
-      </form>
-    </li>
-
-    <li><%= link_to(music.name, music) %> </li>
-    <li><%= music.song_name %> </li>
-    <li>Posted by: <%= music.post_by%>
-
-  </li>
+      </form></li>
+    <li>Artist:  <%= link_to(music.name, music) %> </li>
+    <li>Song:  <%= music.song_name %> </li>
+    <li>Posted:  <%= music.post_by%></li>
     <li><%= link_to 'Delete', music, :method => :delete %>
       <%= link_to 'Edit', edit_music_path(music) %></li>
   </ul>
-
   <% (c,d) = music.url.split('=',2) %>
+</div>
 
+  <div class="vid"><iframe id= 'vid' width="500" height="325" src="http://www.youtube.com/embed/<%= d %>" frameborder="0" allowfullscreen></iframe>
 
-  <div class="vid"><iframe id= 'vid' width="500" height="325" src="http://www.youtube.com/embed/<%= d %>" frameborder="0" allowfullscreen></iframe></div>
-<br><br><br><br> </div>
+  </div></div></div><br><hr/><br>
 
 
   <% end %>
