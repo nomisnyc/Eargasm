@@ -1,6 +1,12 @@
-<h1>What's Been on Repeat</h1>
+<% content_for :header do %>
+  main h1 text
+<% end %>
+
+
+<div class="container">
 
    <%#<% @m = @musics.sort_by! {|i| i.rating}  %>
+
 
 <% @musics.each do |music| %>
   <ul>
@@ -24,8 +30,8 @@
   <% (c,d) = music.url.split('=',2) %>
 
 
-  <iframe id= 'vid' width="400" height="225" src="http://www.youtube.com/embed/<%= d %>" frameborder="0" allowfullscreen></iframe>
-
+  <div class="vid"><iframe id= 'vid' width="500" height="325" src="http://www.youtube.com/embed/<%= d %>" frameborder="0" allowfullscreen></iframe></div>
+<br><br><br><br> </div>
 
 
   <% end %>

@@ -6,16 +6,18 @@
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
 </head>
-<body>
 
-  <body>
   <div class='container'>
+    <header>
     <nav>
+      <h1><%= yield :header %></h1>
       <ul>
         <li><%= link_to('New Music', new_music_path) %></li>
         <li><%= link_to('Music', musics_path) %></li>
-      </ul>
-    </nav>
+      </ul></nav>
+    </div><br><br><br><br><br><br><br><br><br><br><br><br>
+  </header>
+<body>
 
     <% flash.each do |name, msg| %>
   <div class="alert alert-<%= name == :notice ? "success" : "error" %>">

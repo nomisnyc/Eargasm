@@ -1,0 +1,78 @@
+@import url(http://fonts.googleapis.com/css?family=Varela+Round);
+
+body
+{width: 80%;
+margin: 0 auto;
+background-color: #343838;
+color: #00DFFC;
+font-size: 20px;
+font-family: 'Varela Round', sans-serif;
+}
+
+a:link {color:#00dffc;}      /* unvisited link */
+a:hover {color:#FF00FF;}  /* mouse over link */
+a:visited {color:#00dffc}
+a:active {color:#00dffc;}  /* selected link */
+a:link {text-decoration:none;}
+a:visited {text-decoration:none;}
+a:hover {text-decoration:underline;}
+a:active {text-decoration:underline;}
+{color:#000000;}
+
+nav {
+
+font-size: 25px;
+position: fixed; top: 3px;
+background-color: #343838;
+magin: 2px 2px;
+padding: 2px 4px;
+border-radius: 15px;
+border-color: #ffffff;
+border-style:solid;
+width: 90%;
+height: 150px;
+background-image: url('banner2.jpg')
+}
+
+nav ul {
+  float: right;
+  width: 400px;
+}
+
+header {
+color: #00DFFC;
+}
+nav li
+{float: left;
+  list-style: none;
+  padding: 10px 5px;
+  width: 150px;
+  color: #005F6B;
+}
+h1 {
+  padding: 2px 25px;
+  width: 600px;
+  float: left;
+  font-size: 80px;
+  webkit-text-stroke: 4px white;
+  color: #ff9900;
+  text-shadow:
+       3px 3px 0 #000,
+     -1px -1px 0 #000,
+      1px -1px 0 #000,
+      -1px 1px 0 #000,
+       1px 1px 0 #000;
+}
+
+.vid
+{
+border-color: #005F6B;
+border-radius: 10px;
+border-style:solid;
+width: 501px;
+padding: 0 0;
+
+
+
+}
+
