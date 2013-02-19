@@ -1,7 +1,16 @@
 class MusicsController < ApplicationController
 
+  def counter
+    @music = Music.find(params[:id])
+    @music.rating += 1
+    @music.save
+    redirect_to(musics_path)
+  end
+
+
+
   def index
-    @musics = Music.all
+    @musics = Music.order('rating DESC')
   end
 
   def show
@@ -35,6 +44,10 @@ class MusicsController < ApplicationController
     music = Music.find(params[:id])
     music.delete
     redirect_to(musics_path)
-
   end
+
+
+
 end
+
+

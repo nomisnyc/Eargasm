@@ -6,8 +6,9 @@ class CreateMusicsTable < ActiveRecord::Migration
       t.string :song_name
       t.text :url
       t.string :post_by
-      t.integer :rating
+      t.integer :rating, :default => 0
       t.timestamps
     end
   end
 end
+

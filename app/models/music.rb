@@ -15,5 +15,12 @@
 
 class Music < ActiveRecord::Base
   attr_accessible :name, :song_name, :rating, :genre, :url, :post_by
+  before_create :ratingstart
+
+  def ratingstart
+    self.rating = 0
+  end
+
+
 
 end
