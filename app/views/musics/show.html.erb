@@ -1,10 +1,12 @@
 <% content_for :header do %>
-  show page text
+  eargasim
 <% end %>
+
 <div class="container">
   <h2><%= @music.name %></h2>
-<%= link_to 'Back', musics_path %> |
+<%= link_to 'Back', musics_path %>
 <%= link_to 'Edit', edit_music_path(@music) %>
+
 
 <%= link_to 'Delete', @music, :method => :delete %>
 
@@ -18,31 +20,40 @@
   #takes out nil -->
 
     <% topsongs = topsongs.sort_by {|i| i[1]}.reverse.take(5) %>
-  </p>
+
     <ol>
       <h2>  Top Songs of <%= @music.name %> </h2>
      <% topsongs.each do |i| %>
       <li> <em><%= i[0] %></em>-        Hotness Rating: <%= i[1] %></li>
+
 
     <% end %><br><hr/><div class="show">
 
     <% api_key= 'DBBDMGNYLR3WRPCUX'
       artist = @music.name.gsub(' ', '+')
 
-      url= "http://developer.echonest.com/api/v4/artist/biographies?api_key=#{api_key}&name=#{artist}&format=json&results=4"
+      url2 = "http://developer.echonest.com/api/v4/artist/images?api_key=#{api_key}&name=#{artist}&format=json&results=4"
 
-      response = HTTParty.get(url)['response'] %>
 
+      url = "http://developer.echonest.com/api/v4/artist/biographies?api_key=#{api_key}&name=#{artist}&format=json&results=4"
+
+      response = HTTParty.get(url)['response']
+      response2= HTTParty.get(url2)['response']['images'][0]['url'] %>
+
+ <div class="showimg"> <img src= <%= response2 %>> </div>
+<br> <br><br> <br><br> <br><br> <br>
  <% bio = response['biographies'][0]['text'] %>
-
 <% bios = response['biographies'].map { |a| a['text'] } %>
   <% largestbio = bios.group_by(&:size).max.last %>
  <% largestbio.split("\r\n").each do |paragraph| %>
-<%= paragraph %>
+<p><%= paragraph.first %></p>
+
+
  <% end %>
+
 </div></div></div></p>
 
-    <ol>
+    </ol>
 
 
 
