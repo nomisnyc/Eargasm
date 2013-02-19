@@ -15,29 +15,40 @@
 
 
   <% Nestling.api_key = "DBBDMGNYLR3WRPCUX" %>
-
-<% c = Nestling.new %>
-
-<% p = c.song.search(:artist => @music.name, :bucket => :song_hotttnesss)
-
-  a= []
-
-  p.each { |i| a.push([i[:title], i[:song_hotttnesss]])}
+<% nestling = Nestling.new %>
+<% unabridged = nestling.song.search(:artist => @music.name, :bucket => :song_hotttnesss)
+  topsongs = []
+  unabridged.each { |i| topsongs.push([i[:title], i[:song_hotttnesss]]) if i[:song_hotttnesss] }
   #scapes out those two categories.
-  d=[]
-  a.each { |i| d.push(i) if i[1]}
+
+
     #takes out nil
-
     %>
-
-    <% topsongs = d.sort_by {|i| i[1]}.reverse.take(5) %>
+    <% topsongs = topsongs.sort_by {|i| i[1]}.reverse.take(5) %>
     <ol>
       <h2>  Top Songs of <%= @music.name %> </h2>
      <% topsongs.each do |i| %>
       <li> <em><%= i[0] %></em>-        Hotness Rating: <%= i[1] %></li>
 
+
     <% end %>
+    <% api_key= 'DBBDMGNYLR3WRPCUX'
+      artist = @music.name.gsub(' ', '+')
+
+      url= "http://developer.echonest.com/api/v4/artist/biographies?api_key=#{api_key}&name=#{artist}&format=json&results=4"
+
+      response = HTTParty.get(url)['response'] %>
+
+ <% bio = response['biographies'][0]['text'] %>
+
+<% bios = response['biographies'].map { |a| a['text'] } %>
+  <% largestbio = bios.group_by(&:size).max.last %>
+ <% largestbio.split("\r\n").each do |paragraph| %>
+<p><%= paragraph %></p>
+ <% end %>
+
 
     <ol>
+
 
 

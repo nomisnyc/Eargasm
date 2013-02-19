@@ -30,9 +30,9 @@ ActiveRecord::Schema.define(:version => 20130216192216) do
     t.string   "song_name"
     t.text     "url"
     t.string   "post_by"
-    t.integer  "rating"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.integer  "rating",     :default => 0
+    t.datetime "created_at",                :null => false
+    t.datetime "updated_at",                :null => false
   end
 
 end
