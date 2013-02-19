@@ -2,36 +2,32 @@
   show page text
 <% end %>
 
-<p>
-  <b>Name:</b>
-  <%= @music.name %>
-</p>
-
-
-
-<%= link_to 'Edit', edit_music_path(@music) %> |
+<div class="container">
+  <h2><%= @music.name %></h2>
 <%= link_to 'Back', musics_path %>
-  <%= link_to 'Delete', @music, :method => :delete %>
+<%= link_to 'Edit', edit_music_path(@music) %>
 
 
-  <% Nestling.api_key = "DBBDMGNYLR3WRPCUX" %>
+<%= link_to 'Delete', @music, :method => :delete %>
+
+<% Nestling.api_key = "DBBDMGNYLR3WRPCUX" %>
+
 <% nestling = Nestling.new %>
 <% unabridged = nestling.song.search(:artist => @music.name, :bucket => :song_hotttnesss)
   topsongs = []
-  unabridged.each { |i| topsongs.push([i[:title], i[:song_hotttnesss]]) if i[:song_hotttnesss] }
-  #scapes out those two categories.
+  unabridged.each { |i| topsongs.push([i[:title], i[:song_hotttnesss]]) if i[:song_hotttnesss] }%>
+  <!-- #scapes out those two categories.
+  #takes out nil -->
 
-
-    #takes out nil
-    %>
     <% topsongs = topsongs.sort_by {|i| i[1]}.reverse.take(5) %>
+
     <ol>
       <h2>  Top Songs of <%= @music.name %> </h2>
      <% topsongs.each do |i| %>
       <li> <em><%= i[0] %></em>-        Hotness Rating: <%= i[1] %></li>
 
+    <% end %><br><hr>
 
-    <% end %>
     <% api_key= 'DBBDMGNYLR3WRPCUX'
       artist = @music.name.gsub(' ', '+')
 
@@ -52,9 +48,12 @@
 <% bios = response['biographies'].map { |a| a['text'] } %>
   <% largestbio = bios.group_by(&:size).max.last %>
  <% largestbio.split("\r\n").each do |paragraph| %>
-<p><%= paragraph.first %></p>
- <% end %>
 
+<p><%= paragraph.first %></p>
+
+
+ <% end %>
+</div>
 
     <ol>
 
