@@ -35,9 +35,17 @@
     <% api_key= 'DBBDMGNYLR3WRPCUX'
       artist = @music.name.gsub(' ', '+')
 
-      url= "http://developer.echonest.com/api/v4/artist/biographies?api_key=#{api_key}&name=#{artist}&format=json&results=4"
+      url2 = "http://developer.echonest.com/api/v4/artist/images?api_key=#{api_key}&name=#{artist}&format=json&results=4"
 
-      response = HTTParty.get(url)['response'] %>
+
+      url = "http://developer.echonest.com/api/v4/artist/biographies?api_key=#{api_key}&name=#{artist}&format=json&results=4"
+
+      response = HTTParty.get(url)['response']
+      response2= HTTParty.get(url2)['response']['images'][0]['url']
+
+      %>
+
+  <img src= <%= response2 %>>
 
  <% bio = response['biographies'][0]['text'] %>
 

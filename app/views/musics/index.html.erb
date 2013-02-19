@@ -11,6 +11,16 @@
 <% @musics.each do |music| %>
   <ul>
 
+    <% api_key= 'DBBDMGNYLR3WRPCUX'
+      artist = music.name.gsub(' ', '+')
+
+      url2 = "http://developer.echonest.com/api/v4/artist/images?api_key=#{api_key}&name=#{artist}&format=json&results=4"
+
+      response2= HTTParty.get(url2)['response']['images'][1]['url']
+      %>
+
+  <img src= <%= response2 %>>
+
 
     <li><%= music.rating %>
       <form method = 'post' action = 'musics/counter/<%= music.id %>'>
