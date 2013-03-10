@@ -37,7 +37,7 @@ background-image: url('banner2.jpg')
 
 nav ul {
   float: right;
-  width: 400px;
+  width: 550px;
 }
 
 header {
@@ -83,6 +83,8 @@ padding: 0 0;
 }
 
 
+
+
 .main
 {
   float: right;
@@ -106,7 +108,8 @@ list-style: none;
 }
 
 
-button{
+button #main
+{
   background-image:url('button.png');
   color: #00B4CC;
   height: 40px;
@@ -114,26 +117,31 @@ button{
 }
 
 p.artistbio
-{text-align: left;
+{ text-align: left;
   width: 650px;
   float: left;
   font-size: 15px;
-   white-space : pre-wrap;
+  white-space : pre-wrap;
+}
+
+#hide
+{
+  display: hidden;
 }
 
 ol
 {
-
   margin: 6px 0;
 }
+
 li img
 {float: right;
   height: 200px;
   width: 200px;
   padding: 8px 20px;
   border-radius: 15px;
-border-color: #005F6B;
-border-style:solid;
+  border-color: #005F6B;
+  border-style:solid;
 
 }
 
@@ -144,8 +152,8 @@ border-style:solid;
 }
 
 .show
-{width: 850px;
+{
+  width: 850px;
   float: right;
   text-align: left;
-
 }

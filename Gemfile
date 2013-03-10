@@ -9,6 +9,8 @@ gem 'twilio-ruby'
 gem 'json'
 gem 'httparty'
 gem 'youtube_search'
+gem 'bcrypt-ruby'
+gem 'haml'
 
 group :assets do
   gem 'sass-rails',   '~> 3.2.3'

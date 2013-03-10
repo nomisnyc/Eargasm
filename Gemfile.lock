@@ -31,6 +31,7 @@ GEM
     annotate (2.5.0)
       rake
     arel (3.0.2)
+    bcrypt-ruby (3.0.1)
     better_errors (0.6.0)
       coderay (>= 1.0.0)
       erubis (>= 2.6.6)
@@ -57,6 +58,8 @@ GEM
     erubis (2.7.0)
     execjs (1.4.0)
       multi_json (~> 1.0)
+    haml (4.0.0)
+      tilt
     hike (1.2.1)
     httparty (0.10.2)
       multi_json (~> 1.0)
@@ -157,9 +160,11 @@ PLATFORMS
 
 DEPENDENCIES
   annotate
+  bcrypt-ruby
   better_errors
   binding_of_caller
   coffee-rails (~> 3.2.1)
+  haml
   httparty
   jquery-rails
   json

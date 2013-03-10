@@ -1,4 +1,10 @@
  $(function(){
-  $('#show_bio').click(show_bio);
-  $('hide_bio').click(hide_bio);
+  $('#artist_bio').click(toggle_bio);
  });
+
+function toggle_bio()
+{
+  $('.artistbio').toggle();
+
+}
+
