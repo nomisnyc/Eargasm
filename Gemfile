@@ -8,7 +8,7 @@ gem 'nestling'
 gem 'twilio-ruby'
 gem 'json'
 gem 'httparty'
-
+gem 'youtube_search'
 
 group :assets do
   gem 'sass-rails',   '~> 3.2.3'
