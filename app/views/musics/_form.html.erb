@@ -1,13 +1,10 @@
 <%= form_for(@music) do |f| %>
 
-<%= f.text_field :name, :placeholder => "Artist Name: " %>
+<%= f.text_field :name, :placeholder => "Artist(s): " %>
 <%= f.label :name,:autofocus => 'autofocus' %>
 <br>
 <%= f.text_field :song_name, :placeholder => "Song Name" %>
 <%= f.label :song_name %>
-<br>
-<%= f.text_field :url, :placeholder => "You Tube URL" %>
-<%= f.label :url %>
 <br>
 <%= f.text_field :post_by, :placeholder => "Post By" %>
 <%= f.label :post_by %> <br>
