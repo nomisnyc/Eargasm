@@ -24,7 +24,7 @@
       response2= HTTParty.get(url2)['response']['images'][1]['url']
       %>
 
-    <li><img src= <%= response2 %>><br></li>
+    <li><img id= "fourth" src= <%= response2 %>><br></li>
 
 
     <li>Artist:  <%= link_to(music.name, music) %> </li>

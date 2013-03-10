@@ -24,7 +24,7 @@ nav {
 font-size: 25px;
 position: fixed; top: 3px;
 background-color: #343838;
-magin: 2px 2px;
+margin: 2px 2px;
 padding: 2px 4px;
 border-radius: 15px;
 border-color: #ffffff;
@@ -147,5 +147,3 @@ border-style:solid;
 {width: 850px;
   float: right;
   text-align: left;
-
-}

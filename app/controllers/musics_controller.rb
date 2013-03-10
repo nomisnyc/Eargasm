@@ -32,7 +32,6 @@ class MusicsController < ApplicationController
     id= YoutubeSearch.search(@music.name + @music.song_name).first['video_id']
     url= "https://youtube.com/embed/#{id}"
     @music.url = url
-
     @music.save
     redirect_to(musics_path)
 
