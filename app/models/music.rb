@@ -21,6 +21,8 @@ class Music < ActiveRecord::Base
     self.rating = 0
   end
 
-
+  def atrak
+    YoutubeSearch.search(self.name)
+  end
 
 end
