@@ -51,9 +51,6 @@ nav li
   color: #005F6B;
 
 }
-nav ul li a:link {
-  color: red
-}
 
 h1 {
   padding: 2px 25px;
@@ -95,9 +92,7 @@ background-repeat: repeat;
 height: 325px;
 magin: 2px 2px;
 padding: 2px 4px;
-border-radius: 15px;
-border-color: #005F6B;
-border-style:solid;
+
 
 }
 
@@ -151,5 +146,17 @@ border-style:solid;
   float: right;
   text-align: left;
   white-space : pre-wrap;
-
   }
+
+#showpic{
+  height: 500px;
+  width: 500px;
+  margin: 40px 0;
+}
+
+#fourth{
+  border: solid 10px;
+  color: #005F6B;
+  padding: 0px;
+  margin: 0px;
+}
