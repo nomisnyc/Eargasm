@@ -41,12 +41,12 @@
       response2= HTTParty.get(url2)['response']['images'][0]['url'] %>
 
  <div class="showimg"> <img src= <%= response2 %>> </div>
-<br> <br><br> <br><br> <br><br> <br>
+
  <% bio = response['biographies'][0]['text'] %>
 <% bios = response['biographies'].map { |a| a['text'] } %>
   <% largestbio = bios.group_by(&:size).max.last %>
  <% largestbio.split("\r\n").each do |paragraph| %>
-<p><%= paragraph.first %></p>
+<p class = "artistbio"><%= paragraph.first %></p>
 
 
  <% end %>

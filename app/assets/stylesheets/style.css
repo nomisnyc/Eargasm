@@ -118,11 +118,12 @@ button{
   width: 40px;
 }
 
-p
+p.artistbio
 {text-align: left;
   width: 650px;
   float: left;
   font-size: 15px;
+   white-space : pre-wrap;
 }
 
 ol
@@ -140,16 +141,17 @@ border-color: #005F6B;
 border-style:solid;
 
 }
-.showimg
+
+
+.showimg img
 {
-  height: 400px;
-  width: 400px;
+  height: 300px;
 }
 
 .show
 {width: 850px;
   float: right;
   text-align: left;
-  white-space : pre-wrap;
-
   }
+
+
