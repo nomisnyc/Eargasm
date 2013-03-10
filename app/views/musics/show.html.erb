@@ -46,7 +46,7 @@
 <% bios = response['biographies'].map { |a| a['text'] } %>
   <% largestbio = bios.group_by(&:size).max.last %>
  <% largestbio.split("\r\n").each do |paragraph| %>
-<p class = "artistbio"><%= paragraph.first %></p>
+<p class ="artistbio hide"><%= paragraph.first %></p>
 
 
  <% end %>
