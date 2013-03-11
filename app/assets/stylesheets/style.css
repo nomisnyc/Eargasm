@@ -136,6 +136,9 @@ border-color: #005F6B;
 border-style:solid;
 
 }
+.hide{
+  display: hidden;
+}
 
 
 .showimg img

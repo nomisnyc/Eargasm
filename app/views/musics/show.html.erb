@@ -42,6 +42,10 @@
 
  <div class="showimg"> <img src= <%= response2 %>> </div>
 
+<% @music.atrak.each do |music| %>
+<% end %>
+
+
  <% bio = response['biographies'][0]['text'] %>
 <% bios = response['biographies'].map { |a| a['text'] } %>
   <% largestbio = bios.group_by(&:size).max.last %>

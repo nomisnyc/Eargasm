@@ -22,7 +22,7 @@ class Music < ActiveRecord::Base
   end
 
   def atrak
-    YoutubeSearch.search(self.name)
+    a= YoutubeSearch.search(self.name).first(10).map{|i| {'title' => i['title'], 'video_id' => i['video_id'] }}
   end
-
+''
 end
