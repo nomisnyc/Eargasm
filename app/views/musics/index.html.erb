@@ -18,7 +18,7 @@
     <li><%= link_to 'Delete', music, :method => :delete %>
       <%= link_to 'Edit', edit_music_path(music) %></li>
   </ul>
-<li><%= image_tag(music.image_url) %></li>
+<%= image_tag(music.image_url) %>
 
   <% (c,d) = music.url.split('=',2) %>
 </div>
