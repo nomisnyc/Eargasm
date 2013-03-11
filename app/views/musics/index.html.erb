@@ -8,14 +8,17 @@
    <%#<% @m = @musics.sort_by! {|i| i.rating}  %>
 
    <%#<% @m = @musics.sort_by! {|i| i.rating}  %>
-<div class="container">
+<div class="container" id= 'musicloop'>
 <% @musics.each do |music| %>
   <ul>
-    <div class="main"><li>Prop:  <%= music.rating %>
-      <form method = 'post' action = 'musics/counter/<%= music.id %>'>
-      <button> </button>
-      </form></li>
+    <div class="main">
 
+      <li>Props:  <%= music.rating %><li>
+
+      <button class= "upvote"> </button>
+
+
+      <li class = "hide"><%= music.id %><li>
       <% api_key= 'DBBDMGNYLR3WRPCUX'
       artist = music.name.gsub(' ', '+')
 
@@ -39,7 +42,7 @@
   <% (c,d) = music.url.split('=',2) %>
 </div>
 
-  <div class="vid"><iframe id= 'vid' width="500" height="325" src="<%= music.url %>" frameborder="0" allowfullscreen></iframe>
+  <div class="vid"><iframe id= 'vid' width="550" height="353" src="<%= music.url %>" frameborder="0" allowfullscreen></iframe>
  </div>
 
   </div></div></div><br><hr/><br>
