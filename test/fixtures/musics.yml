@@ -8,7 +8,7 @@
 #  song_name  :string(255)
 #  url        :text
 #  post_by    :string(255)
-#  rating     :integer
+#  rating     :integer          default(0)
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
 #
