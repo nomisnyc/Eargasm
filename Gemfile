@@ -11,6 +11,9 @@ gem 'httparty'
 gem 'youtube_search'
 gem 'bcrypt-ruby'
 gem 'haml'
+gem 'bandsintown'
+gem 'songkickr'
+gem 'json'
 
 group :assets do
   gem 'sass-rails',   '~> 3.2.3'
