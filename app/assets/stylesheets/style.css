@@ -47,7 +47,7 @@ nav li
 {float: left;
   list-style: none;
   padding: 10px 5px;
-  width: 150px;
+  width: 100px;
   color: #005F6B;
 
 }
@@ -72,7 +72,6 @@ h2
   paddling: 3px 5px;
 }
 
-
 .vid
 {
 border-color: #005F6B;
@@ -82,8 +81,10 @@ width: 501px;
 padding: 0 0;
 }
 
+.homepage
+{
 
-
+}
 
 .main
 {
@@ -94,8 +95,6 @@ background-repeat: repeat;
 height: 325px;
 magin: 2px 2px;
 padding: 2px 4px;
-
-
 }
 
 .container{
@@ -143,7 +142,6 @@ li img
   border-color: #005F6B;
   border-style:solid;
 }
-
 
 .showimg img
 {

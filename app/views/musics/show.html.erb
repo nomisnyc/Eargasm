@@ -42,10 +42,10 @@
       response = HTTParty.get(url)['response']
       response2= HTTParty.get(url2)['response']['images'][0]['url'] %>
 
- <div class="showimg"> <img src= <%= response2 %>> </div>
+ <div class="showimg"> <img src= <%= response2 %>> </div><br>
 
  <%= button_tag 'Bio', :id => 'artist_bio', :class => 'button radius success tiny' %>
- <br>
+ <br><br><br>
  <% bio = response['biographies'][0]['text'] %>
 <% bios = response['biographies'].map { |a| a['text'] } %>
   <% largestbio = bios.group_by(&:size).max.last %>
