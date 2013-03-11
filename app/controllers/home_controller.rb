@@ -1,4 +1,4 @@
-git class HomeController < ApplicationController
+class HomeController < ApplicationController
 
   def index
     @homes = Home.all

@@ -40,6 +40,7 @@
       url = "http://developer.echonest.com/api/v4/artist/biographies?api_key=#{api_key}&name=#{artist}&format=json&results=4"
 
       response = HTTParty.get(url)['response']
+      binding.pry
       response2= HTTParty.get(url2)['response']['images'][0]['url'] %>
 
  <div class="showimg"> <img src= <%= response2 %>> </div>
