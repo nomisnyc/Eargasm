@@ -62,15 +62,12 @@
   <% largestbio = bios.group_by(&:size).max.last %>
  <% largestbio.split("\r\n").each do |paragraph| %>
 
-<p class = "artistevent hide">
-  blah blah blah blah blah blah
-<br><br>
-</p>
 <p class = "artistbio hide">
   <%= paragraph.first %>
-  <br><br>
-</p></div></div>
-
+</p></div>
+<p class = "artistevent hide">
+  blahblahblahblahblah
+</p></div>
 
  <% end %>
 
