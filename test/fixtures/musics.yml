@@ -11,6 +11,9 @@
 #  rating     :integer          default(0)
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
+#  user_id    :integer
+#  bio        :text
+#  image_url  :text
 #
 
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html

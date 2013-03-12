@@ -8,7 +8,6 @@ class MusicsController < ApplicationController
   end
 
 
-
   def index
     @musics = Music.order('rating DESC')
   end

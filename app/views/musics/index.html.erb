@@ -1,0 +1,33 @@
+
+<% content_for :header do %>
+  eargasm
+<% end %>
+  <div class="container">
+    <%#<% @m = @musics.sort_by! {|i| i.rating}  %><%#<% @m = @musics.sort_by! {|i| i.rating}  %>
+      <div class="container" id='musicloop'>
+        <% @musics.each do |music| %>
+          <ul>
+            <li style="list-style: none; display: inline">
+              <div class="main">
+                <ul>
+                  <li>Props: <%= music.rating %></li>
+                  <li class = "hide"><%= music.id %></li>
+
+    <li>Artist:  <%= link_to(music.name, music) %> </li>
+    <li>Song:  <%= music.song_name %> </li>
+    <li>Posted:  <%= music.post_by%></li>
+    <li><%= link_to 'Delete', music, :method => :delete %>
+      <%= link_to 'Edit', edit_music_path(music) %></li>
+  </ul>
+<%= image_tag(music.image_url) %>
+
+  <% (c,d) = music.url.split('=',2) %>
+</div>
+                  <div class="vid"><iframe id='vid' width="550" height="353" src= <%= music.url %> frameborder="0" allowfullscreen=""></iframe>
+            </li>
+          </ul>
+        </div>
+      </div><br>
+    <hr>
+  <br>
+<% end %>

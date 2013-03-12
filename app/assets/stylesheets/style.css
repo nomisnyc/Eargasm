@@ -47,7 +47,7 @@ nav li
 {float: left;
   list-style: none;
   padding: 10px 5px;
-  width: 150px;
+  width: 100px;
   color: #005F6B;
 
 }
@@ -72,18 +72,19 @@ h2
   paddling: 3px 5px;
 }
 
-
 .vid
 {
 border-color: #005F6B;
 border-radius: 10px;
 border-style:solid;
-width: 501px;
+width: 480px;
 padding: 0 0;
 }
 
+.homepage
+{
 
-
+}
 
 .main
 {
@@ -94,8 +95,6 @@ background-repeat: repeat;
 height: 325px;
 magin: 2px 2px;
 padding: 2px 4px;
-
-
 }
 
 .container{
@@ -124,9 +123,9 @@ p.artistbio
   white-space : pre-wrap;
 }
 
-#hide
+.hide
 {
-  display: hidden;
+  display: none;
 }
 
 ol
@@ -146,7 +145,6 @@ li img
 .hide{
   display: hidden;
 }
-
 
 .showimg img
 {
