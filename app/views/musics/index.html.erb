@@ -10,7 +10,7 @@
             <li style="list-style: none; display: inline">
               <div class="main">
                 <ul>
-                  <li>Props: <%= music.rating %></li>
+                  <li id="crib">Props: <%= music.rating %><img id = 'thumb' src='http://www.larsoned.com/files/med_small/1036_thumbs%20up%20icon.PNG'></li>
                   <li class = "hide"><%= music.id %></li>
 
     <li>Artist:  <%= link_to(music.name, music) %> </li>
@@ -19,7 +19,7 @@
     <li><%= link_to 'Delete', music, :method => :delete %>
       <%= link_to 'Edit', edit_music_path(music) %></li>
   </ul>
-<%= image_tag(music.image_url) %>
+<div class = 'img' > <%= image_tag(music.image_url) %> </div>
 
   <% (c,d) = music.url.split('=',2) %>
 </div>
