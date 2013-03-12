@@ -25,13 +25,12 @@ class Music < ActiveRecord::Base
 
   def categories
     api_key = 'DBBDMGNYLR3WRPCUX'
-    self.name = self.name.gsub(' ', '+')
-    url2 = "http://developer.echonest.com/api/v4/artist/images?api_key=#{api_key}&name=#{self.name}&format=json&results=4"
+    url2 = "http://developer.echonest.com/api/v4/artist/images?api_key=#{api_key}&name=#{self.name.gsub(' ', '+')}&format=json&results=4"
     response2= HTTParty.get(url2)['response']['images'][0]['url']
-    
+    self.name.gsub('+', ' ')
     self.image_url = response2
 
-    url= "http://developer.echonest.com/api/v4/artist/biographies?api_key=#{api_key}&name=#{self.name}&format=json&results=4"
+    url= "http://developer.echonest.com/api/v4/artist/biographies?api_key=#{api_key}&name=#{self.name.gsub(' ', '+')}&format=json&results=4"
 
     response = HTTParty.get(url)['response']
    

@@ -1,16 +1,10 @@
 
-
 <% content_for :header do %>
   eargasm
 <% end %>
 
 <div class="container">
-  <h2><%= @music.name %></h2>
-<%= link_to 'Back', musics_path %>
-<%= link_to 'Edit', edit_music_path(@music) %>
-
-
-<%= link_to 'Delete', @music, :method => :delete %>
+ 
 
 <% Nestling.api_key = "DBBDMGNYLR3WRPCUX" %>
 
@@ -24,12 +18,21 @@
     <% topsongs = topsongs.sort_by {|i| i[1]}.reverse.take(5) %>
 
     <ol>
-      <h2>  Top Songs of <%= @music.name %> </h2>
+       <h2><%= @music.name %></h2>
+       <br>
+<%= link_to 'Back', musics_path %>
+<%= link_to 'Edit', edit_music_path(@music) %>
+
+
+<%= link_to 'Delete', @music, :method => :delete %>
+      <br><br>
+      <h2>Top Songs of <%= @music.name %></h2>
+      <br>
      <% topsongs.each do |i| %>
       <li> <em><%= i[0] %></em>-        Hotness Rating: <%= i[1] %></li>
 
 
-    <% end %><br><hr/><div class="show">
+    <% end %><br><hr/><br><div class="show">
 
     <% api_key= 'DBBDMGNYLR3WRPCUX'
       artist = @music.name.gsub(' ', '+')
@@ -50,20 +53,24 @@
 
 
 
- <%= button_tag 'Bio', :id => 'artist_bio', :class => 'button radius success tiny' %>
+ <%= button_tag 'Biography', :id => 'artist_bio', :class => 'button radius success tiny' %>
+ <%= button_tag 'Events', :id => 'artist_event', :class => 'button radius success tiny' %>
 
  <br><br><br>
-
-
-
  <% bio = response['biographies'][0]['text'] %>
 <% bios = response['biographies'].map { |a| a['text'] } %>
   <% largestbio = bios.group_by(&:size).max.last %>
  <% largestbio.split("\r\n").each do |paragraph| %>
 
+<p class = "artistevent hide">
+  blah blah blah blah blah blah
+<br><br>
+</p>
 <p class = "artistbio hide">
   <%= paragraph.first %>
-</p>
+  <br><br>
+</p></div></div>
+
 
  <% end %>
 
