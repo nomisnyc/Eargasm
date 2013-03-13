@@ -4,8 +4,12 @@
   $('#musicloop').on('click', '.upvote', up_vote);
   $('#artist_bio').click(toggle_bio);
   $('#artist_location').click(toggle_location);
-  $('artist_event').click(toggle_event);
+  $('#artist_event').click(toggle_event);
+  $('#homepage').click(toggle_home);
+  $('.homepage').children().children().css('font-size','50px');
  });
+
+
 
 
  function up_vote() {
@@ -16,6 +20,7 @@
 function toggle_bio()
 {
   $('.artistbio').toggle();
+  $('.artistevent').hide();
 }
 
 function toggle_location()
@@ -25,5 +30,13 @@ function toggle_location()
 
 function toggle_event()
 {
-  $('.artist_event').toggle();
+  $('.artistevent').toggle();
+  $('.artistbio').hide();
+  $('#map_canvas').toggle();
+  $('#distance').toggle();
+}
+
+function toggle_home()
+{
+  $('.homepage').toggle();
 }

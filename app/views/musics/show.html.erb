@@ -1,16 +1,16 @@
 
-
-
 <% content_for :header do %>
   eargasm
 <% end %>
 
 <div class="container">
+
   <h2><%= @music.name %></h2>
 <%= link_to 'Back', musics_path %>
 <%= link_to 'Edit', edit_music_path(@music) %>
 
 <%= link_to 'Delete', @music, :method => :delete %>
+
 
 <% Nestling.api_key = "DBBDMGNYLR3WRPCUX" %>
 
@@ -25,32 +25,21 @@
 
     <ol>
 
-      <div id="map_canvas"></div>
-        <script>
-              display_map(<%= @music.lat %>, <%= @music.lng %> , 10 );
-      //add_marker(<%= @music.ven_lat %>, <%=@music.ven_lng %>, <%= @music.ven_name %>);
-        </script>
 
-          <script>
-            add_marker('<%= @music.ven_lat %>', '<%=@music.ven_lng %>', '<%=@music.ven_name %>');
-            </script>
+      <h2>Top Songs of <%= @music.name %></h2>
+      <br>
+     <% topsongs.each do |i| %>
+      <li> <em><%= i[0] %></em>-        Hotness Rating: <%= i[1] %></li>
 
-          <% if @music.ven_name %>
-          <% b= @music.time.split %>
-          <li> <%= @music.name %> will be playing at <%= @music.ven_name %> at approximately <%= b[1] %> on <%= b[0] %>. </li>
+
+    <% end %>
+    <br><hr/><br><div class="show">
 
             <br></br>
 
-          <li>The distance between <%= @music.location %> and <%= @music.ven_name %> is <%= @music.distance %> miles. </li>
-
-            <% end %>
-
-              <h2>  Top Songs of <%= @music.name %> </h2>
-             <% topsongs.each do |i| %>
-              <li> <em><%= i[0] %></em>-        Hotness Rating: <%= i[1] %></li>
 
 
-              <% end %><br><hr/><div class="show">
+
 
               <% api_key= 'DBBDMGNYLR3WRPCUX'
                 artist = @music.name.gsub(' ', '+')
@@ -65,12 +54,10 @@
 
          <div class="showimg"> <img src= <%= response2 %>> </div><br>
 
- <%= button_tag 'Bio', :id => 'artist_bio', :class => 'button radius success tiny' %>
+ <%= button_tag 'Biography', :id => 'artist_bio', :class => 'button radius success tiny' %>
+ <%= button_tag 'Events', :id => 'artist_event', :class => 'button radius success tiny' %>
 
  <br><br><br>
-
-
-
  <% bio = response['biographies'][0]['text'] %>
 <% bios = response['biographies'].map { |a| a['text'] } %>
   <% largestbio = bios.group_by(&:size).max.last %>
@@ -78,12 +65,29 @@
 
 <p class = "artistbio hide">
   <%= paragraph.first %>
-</p>
+</p><p class = "artistevent hide">
+  <div id="map_canvas" class = "hide"></div>
+        <script>
+              display_map(<%= @music.lat %>, <%= @music.lng %> , 10 );
+          //add_marker(<%= @music.ven_lat %>, <%=@music.ven_lng %>, <%= @music.ven_name %>);
+        </script>
+
+
+          <script>
+            add_marker('<%= @music.ven_lat %>', '<%=@music.ven_lng %>', '<%=@music.ven_name %>');
+            </script>
+
+
+             <li id = 'distance' class = "hide">The distance between <%= @music.location %> and <%= @music.ven_name %> is <%= @music.distance %> miles. </li>
+
+</p></div></div>
+
 
  <% end %>
 
 </div></div></div>
 
     </ol>
+
 
 

@@ -12,18 +12,17 @@
                 <ul>
                   <li id="crib">Props: <%= music.rating %><img id = 'thumb' src='http://www.larsoned.com/files/med_small/1036_thumbs%20up%20icon.PNG'></li>
                   <li class = "hide"><%= music.id %></li>
-
-    <li>Artist:  <%= link_to(music.name, music) %> </li>
-    <li>Song:  <%= music.song_name %> </li>
-    <li>Posted:  <%= music.post_by%></li>
-    <li><%= link_to 'Delete', music, :method => :delete %>
-      <%= link_to 'Edit', edit_music_path(music) %></li>
-  </ul>
-<div class = 'img' > <%= image_tag(music.image_url) %> </div>
-
-  <% (c,d) = music.url.split('=',2) %>
-</div>
+                  <li>Artist:  <%= link_to(music.name, music) %> </li>
+                  <li>Song:  <%= music.song_name %> </li>
+                  <li>Posted:  <%= music.post_by%></li>
+                  <li><%= image_tag(music.image_url) %></li>
+                  <br><br><br><br><br><br><br><br><br>
+                  <li><%= link_to 'Delete', music, :method => :delete %>
+                   <%= link_to 'Edit', edit_music_path(music) %></li>
+                  </ul><% (c,d) = music.url.split('=',2) %>
+              </div>
                   <div class="vid"><iframe id='vid' width="550" height="353" src= <%= music.url %> frameborder="0" allowfullscreen=""></iframe>
+
             </li>
           </ul>
         </div>

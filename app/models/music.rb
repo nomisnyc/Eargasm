@@ -26,20 +26,14 @@ class Music < ActiveRecord::Base
 
   def categories
     api_key = 'DBBDMGNYLR3WRPCUX'
-
-
     url2 = "http://developer.echonest.com/api/v4/artist/images?api_key=#{api_key}&name=#{self.name.gsub(' ','+')}&format=json&results=4"
     response2= HTTParty.get(url2)['response']['images'][0]['url']
     self.image_url = response2
-
     url= "http://developer.echonest.com/api/v4/artist/biographies?api_key=#{api_key}&name=#{self.name.gsub(' ', '+')}&format=json&results=4"
-
     response = HTTParty.get(url)['response']
-
     bios = response['biographies'].map { |a| a['text']}
     largestbio = bios.group_by(&:size).max.last
     self.bio = largestbio.split("\r\n").join(" ")
-
   end
 
   def ratingstart
