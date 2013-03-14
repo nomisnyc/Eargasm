@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130311201411) do
+ActiveRecord::Schema.define(:version => 20130312055610) do
 
   create_table "homes", :force => true do |t|
     t.datetime "created_at", :null => false
@@ -25,16 +25,24 @@ ActiveRecord::Schema.define(:version => 20130311201411) do
     t.text     "url"
     t.string   "post_by"
     t.integer  "rating",     :default => 0
-    t.datetime "created_at",                :null => false
-    t.datetime "updated_at",                :null => false
+    t.datetime "created_at",                    :null => false
+    t.datetime "updated_at",                    :null => false
     t.integer  "user_id"
     t.text     "bio"
     t.text     "image_url"
+    t.string   "location",   :default => "nyc"
+    t.float    "lng"
+    t.float    "lat"
+    t.string   "ven_name"
+    t.float    "ven_lat"
+    t.float    "ven_lng"
+    t.string   "time"
   end
 
   create_table "users", :force => true do |t|
     t.string   "name"
     t.string   "email"
+    t.string   "location"
     t.string   "password_digest"
     t.datetime "created_at",      :null => false
     t.datetime "updated_at",      :null => false

@@ -4,7 +4,13 @@
 <% end %>
 
 <div class="container">
- 
+
+  <h2><%= @music.name %></h2>
+<%= link_to 'Back', musics_path %>
+<%= link_to 'Edit', edit_music_path(@music) %>
+
+<%= link_to 'Delete', @music, :method => :delete %>
+
 
 <% Nestling.api_key = "DBBDMGNYLR3WRPCUX" %>
 
@@ -18,40 +24,35 @@
     <% topsongs = topsongs.sort_by {|i| i[1]}.reverse.take(5) %>
 
     <ol>
-       <h2><%= @music.name %></h2>
-       <br>
-<%= link_to 'Back', musics_path %>
-<%= link_to 'Edit', edit_music_path(@music) %>
 
 
-<%= link_to 'Delete', @music, :method => :delete %>
-      <br><br>
       <h2>Top Songs of <%= @music.name %></h2>
       <br>
      <% topsongs.each do |i| %>
       <li> <em><%= i[0] %></em>-        Hotness Rating: <%= i[1] %></li>
 
 
-    <% end %><br><hr/><br><div class="show">
+    <% end %>
+    <br><hr/><br><div class="show">
 
-    <% api_key= 'DBBDMGNYLR3WRPCUX'
-      artist = @music.name.gsub(' ', '+')
-
-      url2 = "http://developer.echonest.com/api/v4/artist/images?api_key=#{api_key}&name=#{artist}&format=json&results=4"
+            <br></br>
 
 
-      url = "http://developer.echonest.com/api/v4/artist/biographies?api_key=#{api_key}&name=#{artist}&format=json&results=4"
-
-      response = HTTParty.get(url)['response']
-      response2= HTTParty.get(url2)['response']['images'][0]['url'] %>
-
- <div class="showimg"> <img src= <%= response2 %>> </div><br>
 
 
-<% @music.atrak.each do |music| %>
-<% end %>
+
+              <% api_key= 'DBBDMGNYLR3WRPCUX'
+                artist = @music.name.gsub(' ', '+')
+
+                url2 = "http://developer.echonest.com/api/v4/artist/images?api_key=#{api_key}&name=#{artist}&format=json&results=4"
 
 
+                url = "http://developer.echonest.com/api/v4/artist/biographies?api_key=#{api_key}&name=#{artist}&format=json&results=4"
+
+                response = HTTParty.get(url)['response']
+                response2= HTTParty.get(url2)['response']['images'][2]['url'] %>
+
+         <div class="showimg"> <img src= <%= response2 %>> </div><br>
 
  <%= button_tag 'Biography', :id => 'artist_bio', :class => 'button radius success tiny' %>
  <%= button_tag 'Events', :id => 'artist_event', :class => 'button radius success tiny' %>
@@ -65,7 +66,20 @@
 <p class = "artistbio hide">
   <%= paragraph.first %>
 </p><p class = "artistevent hide">
-  blahblahblahblahblah
+  <div id="map_canvas" class = "hide"></div>
+        <script>
+              display_map(<%= @music.lat %>, <%= @music.lng %> , 10 );
+          //add_marker(<%= @music.ven_lat %>, <%=@music.ven_lng %>, <%= @music.ven_name %>);
+        </script>
+
+
+          <script>
+            add_marker('<%= @music.ven_lat %>', '<%=@music.ven_lng %>', '<%=@music.ven_name %>');
+            </script>
+
+
+             <li id = 'distance' class = "hide">The distance between <%= @music.location %> and <%= @music.ven_name %> is <%= @music.distance %> miles. </li>
+
 </p></div></div>
 
 

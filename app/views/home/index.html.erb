@@ -1,10 +1,12 @@
 <% content_for :header do %>
   eargasm
 <% end %>
-<body> <div class= "homebutton">
-<%= button_tag 'HEY MAN!', :id => 'homepage', :class => 'button radius success tiny' %></div>
+<body> <div class= "homebutton" id = 'homepage'>
+<%#<%= button_tag 'HEY MAN!', :id => 'homepage', :class => 'button radius success tiny' %>
+  <h1>HEY MAN!</h1>
+</div>
 <div class= "homepage hide">
-<h1>Awesome!</h1>
+
 <%= image_tag('home_bg.jpg') %>
 <br><br>
 </div> </body>

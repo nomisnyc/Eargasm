@@ -1,12 +1,15 @@
 Music.delete_all
 User.delete_all
 
-m1 = Music.create(:name =>'Chris Brown', :song_name => 'Dont Wake Me Up', :rating => 5, :genre => 'R&B', :url => 'http://www.youtube.com/watch?v=QOowQeKyNkQ', :image_url => 'http://i2.cdn.turner.com/cnn/dam/assets/120911071015-chris-brown-mtv-vma-2012-award-story-top.jpg')
 
-m2= Music.create(:name =>'Coldplay', :song_name => ' Paradise ', :rating => '6 ', :genre => ' alternative ', :url => 'https://www.youtube.com/embed/1G4isv_Fylg ', :post_by => 'Simon', :image_url => 'http://www.jonathanfun.com/wp-content/uploads/2010/11/coldplay-1.jpg')
+m1 = Music.create(:name =>'Jay-Z', :song_name => 'dead presidents', :rating => 5, :genre => 'rap' , :url => 'https://www.youtube.com/embed/6BCsxQg3NE4', :location => 'nyc')
 
-m3= Music.create(:name =>'Modest Mouse', :song_name => ' Float On', :rating => '7 ', :genre => 'indie', :url => 'https://www.youtube.com/embed/CTAud5O7Qqk ', :post_by => ' Simon', :image_url => 'http://www.theaureview.com/sites/default/files/Modest-Mouse.jpg')
+m2= Music.create(:name =>'Kendrick Lamar', :song_name => 'money trees', :rating => 6, :genre => 'rap', :url => 'https://www.youtube.com/embed/iMR45VOKj58', :location => 'nyc')
 
-u1= User.create(:name => 'Adi', :email => 'adi@gmail.com', :password => 'a', :password_confirmation => 'a')
+#m3= Music.create(:name =>'Divine Fits', :song_name => 'would that not be nice', :rating => 7, :genre => 'indie', :url => 'https://www.youtube.com/embed/8NqbhygoDSA', :location => 'nyc')
 
-u1.musics << [m1, m2, m3]
+u1= User.create(:name => 'Adi', :email => 'adityasingh89@gmail.com', :password => 'a', :password_confirmation => 'a', :location => 'NYC')
+
+u1.musics << [m1, m2]
+
+

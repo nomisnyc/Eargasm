@@ -32,6 +32,8 @@ function toggle_event()
 {
   $('.artistevent').toggle();
   $('.artistbio').hide();
+  $('#map_canvas').toggle();
+  $('#distance').toggle();
 }
 
 function toggle_home()
