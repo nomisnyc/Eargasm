@@ -14,6 +14,13 @@
 #  user_id    :integer
 #  bio        :text
 #  image_url  :text
+#  location   :string(255)      default("nyc")
+#  lng        :float
+#  lat        :float
+#  ven_name   :string(255)
+#  ven_lat    :float
+#  ven_lng    :float
+#  time       :string(255)
 #
 
 require 'test_helper'

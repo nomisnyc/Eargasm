@@ -1,6 +1,10 @@
-
 //= require jquery
 //= require jquery_ujs
-//= require 'music.js'
+//= require 'foundation/js/vendor/custom.modernizr.js'
+//= require 'foundation/js/foundation.min.js'
 //= require 'map.js'
 //= require 'jquery.jscroll.min.js'
+//= require 'jquery.fancybox'
+//= require 'jquery.fancybox.pack'
+//= require 'underscore-min.js'
+//= require 'music.js'

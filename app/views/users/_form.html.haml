@@ -1,0 +1,15 @@
+.row
+  .four.columns
+    = form_for @user do |f|
+      = f.text_field :name, :placeholder => "name", :autofocus => true
+      %br
+      = f.text_field :email, :placeholder => "email"
+      %br
+      = f.text_field :location, :placeholder => "location"
+      %br
+      = f.password_field :password, :placeholder => "password"
+      %br
+      = f.password_field :password_confirmation, :placeholder => "confirm password"
+      %br
+      = f.submit nil, :class => 'button radius tiny'
+  .four.columns

@@ -1,16 +1,14 @@
 <%= form_for(@music) do |f| %>
 
 <%= f.text_field :name, :placeholder => "Artist(s)" %>
-<%= f.label :name,:autofocus => 'autofocus' %>
+<%= f.label :add_an_artist_name_here,:autofocus => 'autofocus' %>
 <br>
 <%= f.text_field :song_name, :placeholder => "Song Name" %>
-<%= f.label :song_name %>
+<%= f.label :give_me_a_song_title %>
 <br>
 <%= f.text_field :post_by, :placeholder => "Post By" %>
-<%= f.label :post_by %> <br><br>
-
-
-<%= f.submit %>
+<%= f.label :post_by %> <br>
+<%= f.submit :class => 'button radius tiny success'%>
   <% end %>
 
 
