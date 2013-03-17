@@ -1,29 +1,26 @@
- $(function(){
-  // $('#show_bio').click(_bio);
-  // $('hide_bio').click(hide_bio);
-  $('h2.subheader').click(demo);
+$(function(){
+// $('#show_bio').click(_bio);
+// $('hide_bio').click(hide_bio);
+$('h2.subheader').click(demo);
 
-  $('#musicloop').on('click', '.upvote', up_vote);
-  $('#artist_bio').click(toggle_bio);
-  $('#artist_location').click(toggle_location);
-  $('#artist_event').click(toggle_event);
-  $('#homepage').click(toggle_home);
-  $('.homepage').children().children().css('font-size','50px');
- $(".fancyYoutube").click(function() {
-    $.fancybox({
-  'transitionIn' : 'fade',
-  'padding' : 20,
-  'autoScale' : false,
-  'href' : this.href.replace(new RegExp("watch\\?v=", "i"), "v/"),
-  'transitionOut' : 'fade',
-  'width' : 680,
-  'height' : 495,
-  'type' : 'swf'
+$('#musicloop').on('click', '.upvote', up_vote);
+$('#artist_bio').click(toggle_bio);
+$('#artist_location').click(toggle_location);
+$('#artist_event').click(toggle_event);
+$('#homepage').click(toggle_home);
+$('.homepage').children().children().css('font-size','50px');
+  $(".various").fancybox({
+    maxWidth  : 800,
+    maxHeight : 600,
+    fitToView : false,
+    width   : '70%',
+    height    : '70%',
+    autoSize  : false,
+    closeClick  : false,
+    openEffect  : 'none',
+    closeEffect : 'none'
   });
-
-      return false;
-    }); //close videoclick function
-   });
+ });
 
 
  function demo()

@@ -18,8 +18,7 @@
                    <div class= 'idxpic'><%= image_tag(music.image_url) %></div>
                   <% (c,d) = music.url.split('=',2) %>
 
-                    <a class="fancyYoutube" href= <%= music.url %> > <%= music.song_name %> </a>
-
+                    <%= link_to(music.song_name, music.url, :class => "various fancybox.iframe") %>
                     <br>
               </div>
 
