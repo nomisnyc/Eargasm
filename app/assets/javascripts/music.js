@@ -9,14 +9,22 @@
   $('#artist_event').click(toggle_event);
   $('#homepage').click(toggle_home);
   $('.homepage').children().children().css('font-size','50px');
-  $('.fancybox-media').fancybox({
-    openEffect  : 'none',
-    closeEffect : 'none',
-    helpers : {
-      media : {}
-    }
+ $(".fancyYoutube").click(function() {
+    $.fancybox({
+  'transitionIn' : 'fade',
+  'padding' : 20,
+  'autoScale' : false,
+  'href' : this.href.replace(new RegExp("watch\\?v=", "i"), "v/"),
+  'transitionOut' : 'fade',
+  'width' : 680,
+  'height' : 495,
+  'type' : 'swf'
   });
- });
+
+      return false;
+    }); //close videoclick function
+   });
+
 
  function demo()
  {
