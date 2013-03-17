@@ -11,24 +11,19 @@
   $('.homepage').children().children().css('font-size','50px');
  $(".fancyYoutube").click(function() {
     $.fancybox({
-'transitionIn' : 'fade',
-'padding' : 20,
-'autoScale' : false,
-'href' : this.href.replace(new RegExp("watch\\?v=", "i"), "v/"),
-'transitionOut' : 'fade',
-'width' : 680,
-'height' : 495,
-'type' : 'swf'
-});
+  'transitionIn' : 'fade',
+  'padding' : 20,
+  'autoScale' : false,
+  'href' : this.href.replace(new RegExp("watch\\?v=", "i"), "v/"),
+  'transitionOut' : 'fade',
+  'width' : 680,
+  'height' : 495,
+  'type' : 'swf'
+  });
 
-    return false;
-  }); //close videoclick function
- });
-
-
-
-
-
+      return false;
+    }); //close videoclick function
+   });
 
 
  function demo()
