@@ -1,0 +1,8 @@
+.row
+  .four.columns
+    = form_for @music do |f|
+      = f.text_field :name, :placeholder => "name", :autofocus => true
+      %br
+      = f.text_field :song_name, :placeholder => "song title"
+      %br
+      = f.submit nil, :class => 'button radius tiny'

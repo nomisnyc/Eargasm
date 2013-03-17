@@ -11,7 +11,7 @@ resources :users, :only => [:index, :new, :create]
     #   get "counter"
     # end
   #end
-  post 'musics/counter/:id' => 'musics#counter'
+
 
 
 end

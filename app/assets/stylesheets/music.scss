@@ -13,7 +13,7 @@ nav {
 
 
 body{
-  background: url(VIGNETTE.jpg) no-repeat center center fixed; 
+  background: url(VIGNETTE.jpg) no-repeat center center fixed;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
@@ -60,12 +60,13 @@ color: #00DFFC;
 opacity:.9;
 }
 
-ul.side-nav
-{
-  width: 220px;
+.idxpic img{
+  height: 80px;
+  width: 120px;
+  background-size: cover;
 }
 
-ul.side-nav.button
-{
-
+.main{
+  margin-bottom: 20px;
+  border-bottom: 4px solid grey;
 }
