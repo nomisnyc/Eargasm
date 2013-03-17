@@ -13,7 +13,7 @@ nav {
 
 
 body{
-  background: url(VIGNETTE.jpg) no-repeat center center fixed; 
+  background: url(VIGNETTE.jpg) no-repeat center center fixed;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
@@ -26,7 +26,7 @@ body{
 
 #container{
 width: 80%;
-background: url('tex2res4.png'); 
+background: url('tex2res4.png');
 background-repeat: repeat;
 margin: 0 auto;
 opacity:0.6;
@@ -60,5 +60,13 @@ float: right;
 opacity:.9;
 }
 
+.idxpic img{
+  height: 80px;
+  width: 120px;
+  background-size: cover;
+}
 
-
+.main{
+  margin-bottom: 20px;
+  border-bottom: 4px solid grey;
+}
