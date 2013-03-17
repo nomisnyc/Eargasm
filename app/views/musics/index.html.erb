@@ -17,9 +17,8 @@
                    <%= link_to 'Edit', edit_music_path(music) %></li></ul>
                    <div class= 'idxpic'><%= image_tag(music.image_url) %></div>
                   <% (c,d) = music.url.split('=',2) %>
-                  <div class="vid"><iframe id='vid' width="550" height="353" src= <%= music.url %> frameborder="0" allowfullscreen=""></iframe>
 
-                    <a class="fancybox-media"  title= <%= music.song_name %> href= <%= music.url %></a>
+                    <a class="fancyYoutube" href= <%= music.url %> > <%= music.song_name %> </a>
 
                     <br>
               </div>

@@ -1,4 +1,5 @@
 // jquery target to empty out the container div in the app layout file.
-$('#container').empty(); 
-// rails renders the partial then jquery appends the form to the container.
+ $('#container').fadeOut('fast');
+$('#container').empty();
 $('#container').append('<%=j render :partial =>'form'%>');
+$('#container').slideDown('slow');

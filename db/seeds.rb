@@ -2,9 +2,9 @@ Music.delete_all
 User.delete_all
 
 
-m1 = Music.create(:name =>'Jay-Z', :song_name => 'dead presidents', :rating => 5, :genre => 'rap' , :url => 'http://www.youtube.com/embed/6BCsxQg3NE4', :location => 'nyc')
+m1 = Music.create(:name =>'Jay-Z', :song_name => 'dead presidents', :rating => 5, :genre => 'rap' , :url => 'http://www.youtube.com/watch?v=6BCsxQg3NE4', :location => 'nyc')
 
-m2= Music.create(:name =>'Kendrick Lamar', :song_name => 'money trees', :rating => 6, :genre => 'rap', :url => 'http://www.youtube.com/embed/iMR45VOKj58', :location => 'nyc')
+m2= Music.create(:name =>'Kendrick Lamar', :song_name => 'money trees', :rating => 6, :genre => 'rap', :url => 'http://www.youtube.com/watch?v=iMR45VOKj58', :location => 'nyc')
 
 #m3= Music.create(:name =>'Divine Fits', :song_name => 'would that not be nice', :rating => 7, :genre => 'indie', :url => 'https://www.youtube.com/embed/8NqbhygoDSA', :location => 'nyc')
 
