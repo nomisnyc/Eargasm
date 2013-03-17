@@ -1,2 +1,3 @@
-$('#container').empty(); 
-$('#container').append('<%=j render :partial =>'form'%>');
+$('#container').fadeOut('fast');
+$('#container').empty();
+$('#container').hide().append('<%=j render :partial =>'form'%>').slideDown('slow');;

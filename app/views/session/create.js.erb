@@ -1,13 +1,6 @@
 $('#container').empty();
-<<<<<<< HEAD
-$('#container').text('You are logged in');
-$('#logbutton').text('log out');
-$('#logbutton').fadeout(slow);
-=======
 $('#container').append('<h3>You are logged in</h3>');
 $('#container h3').fadeOut(2000, function(){ $('#container').remove(); })
 $('#logbutton').empty().append('<%=j link_to(@auth.name, '/login', :method => :delete, :remote => true) %>')
 $('#newmusic').empty().append('<%=j link_to('new music', new_music_path) %>')
 $('#newuser').remove();
-
->>>>>>> 7b4fe23d937bf8262d848266a5dd4a132256af34
