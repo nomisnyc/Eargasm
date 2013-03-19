@@ -1,9 +1,3 @@
-<h2><%= @music.name %></h2>
-<%= link_to 'Back', musics_path %>
-
-<% if @auth %>
-<%= link_to 'Delete', @music, :method => :delete %>
-<% end %>
 
 <% Nestling.api_key = "DBBDMGNYLR3WRPCUX" %>
 
@@ -16,19 +10,24 @@
 
     <% topsongs = topsongs.sort_by {|i| i[1]}.reverse.take(5) %>
 
-    <ol>
+    <ul>
+      <h2><%= @music.name.titleize %></h2>
+<%= link_to 'Back', musics_path %>
+
+<% if @auth %>
+<%= link_to 'Delete', @music, :method => :delete %>
+<% end %>
 
 
-      <h2>Top Songs of <%= @music.name %></h2>
+      <h3>Top Songs of <%= @music.name.titleize %></h3>
       <br>
      <% topsongs.each do |i| %>
       <li> <em><%= i[0] %></em>-        Hotness Rating: <%= i[1] %></li>
 
 
     <% end %>
-    <br><hr/><br><div class="show">
+    <div class="show">
 
-            <br></br>
 
 
               <% api_key= 'DBBDMGNYLR3WRPCUX'
@@ -42,12 +41,13 @@
                 response = HTTParty.get(url)['response']
                 response2= HTTParty.get(url2)['response']['images'][2]['url'] %>
 
+ <%= button_tag ' Biography ', :id => 'artist_bio', :class => 'button radius success tiny' %>
+ <%= button_tag ' Events ', :id => 'artist_event', :class => 'button radius success tiny' %>
+
+
          <div class="showimg"> <img src= <%= response2 %>> </div><br>
 
- <%= button_tag 'Biography', :id => 'artist_bio', :class => 'button radius success tiny' %>
- <%= button_tag 'Events', :id => 'artist_event', :class => 'button radius success tiny' %>
-
- <br><br><br>
+ <br>
  <% bio = response['biographies'][0]['text'] %>
 <% bios = response['biographies'].map { |a| a['text'] } %>
   <% largestbio = bios.group_by(&:size).max.last %>
@@ -71,7 +71,8 @@
   </p></div></div>
 
 <li id='distance'> </li>
-</p></div></div>
+</ul>
+</p></div></div></div>
  <% end %>
 
 
