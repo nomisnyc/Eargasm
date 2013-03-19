@@ -1,9 +1,8 @@
 .row
   .four.columns
     = form_for @music do |f|
-      = f.text_field :name, :placeholder => "name", :autofocus => true
-      %br
+      = f.text_field :name, :placeholder => "name of the artist", :autofocus => true
       = f.text_field :song_name, :placeholder => "song title"
-      %br
+      = f.text_area :description, :placeholder => "enter a description for the video"
       = f.submit nil, :class => 'button radius tiny'
 

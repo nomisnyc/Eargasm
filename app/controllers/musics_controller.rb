@@ -9,7 +9,7 @@ class MusicsController < ApplicationController
 
 
   def index
-    @musics = Music.order('rating DESC')
+    @musics = Music.order(:name)
   end
 
   def show
@@ -31,9 +31,9 @@ class MusicsController < ApplicationController
     id= YoutubeSearch.search(@music.name + @music.song_name).first['video_id']
     url= "http://youtube.com/embed/#{id}"
     @music.url = url
-    @music.save
+    @music.posted_by = @auth.name
+    @music.save if @music.image_url.present?
     redirect_to(musics_path)
-
   end
 
   def update

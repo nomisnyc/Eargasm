@@ -1,9 +1,9 @@
 <h2><%= @music.name %></h2>
 <%= link_to 'Back', musics_path %>
-<%= link_to 'Edit', edit_music_path(@music) %>
 
+<% if @auth %>
 <%= link_to 'Delete', @music, :method => :delete %>
-
+<% end %>
 
 <% Nestling.api_key = "DBBDMGNYLR3WRPCUX" %>
 
