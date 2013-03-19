@@ -1,11 +1,49 @@
-.row
-  .large-3.columns
-    %ul#since-nav
-      %li= button_tag 'Biography', :id => 'artist_bio', :class => 'tiny button radius success tiny'
-      %li= button_tag 'Events', :id => 'artist_event', :class => 'button radius success tiny' 
-
-.row
-  .large-9.columns
-
-
-
+- content_for :header do
+  eargasm
+.container
+  %h2= @music.name
+  = link_to 'Back', musics_path
+  = link_to 'Edit', edit_music_path(@music)
+  = link_to 'Delete', @music, :method => :delete
+  %h2
+    Top Songs of #{@music.name}
+  %br/
+  - topsongs.each do |i|
+    %li
+      %em>= i[0]
+      \-        Hotness Rating: #{i[1]}
+  %br/
+  %hr/
+  %br/
+  .show
+    %br/
+    - api_key= 'DBBDMGNYLR3WRPCUX'
+    - artist = @music.name.gsub(' ', '+')
+    - url2 = "http://developer.echonest.com/api/v4/artist/images?api_key=#{api_key}&name=#{artist}&format=json&results=4"
+    - url = "http://developer.echonest.com/api/v4/artist/biographies?api_key=#{api_key}&name=#{artist}&format=json&results=4"
+    - response = HTTParty.get(url)['response']
+    - response2= HTTParty.get(url2)['response']['images'][2]['url']
+    .showimg
+      <img src= #{response2}>
+    %br/
+    = button_tag 'Biography', :id => 'artist_bio', :class => 'button radius success tiny'
+    = button_tag 'Events', :id => 'artist_event', :class => 'button radius success tiny'
+    %br/
+    %br/
+    %br/
+    - bio = response['biographies'][0]['text']
+    - bios = response['biographies'].map { |a| a['text'] }
+    - largestbio = bios.group_by(&:size).max.last
+    - largestbio.split("\r\n").each do |paragraph|
+      %p.artistbio.hide
+        = paragraph.first
+      %p#artistevent.hide
+      #map_canvas.hide
+        = hidden_field_tag 'map_center_lat', @music.lat
+        = hidden_field_tag 'map_center_lng', @music.lng
+        = hidden_field_tag 'music_venue_lat', @music.ven_lat
+        = hidden_field_tag 'music_venue_lng', @music.ven_lng
+        = hidden_field_tag 'music_venue_name', @music.ven_name
+        = hidden_field_tag 'music_location', @music.location
+        = hidden_field_tag 'music_distance', @music.distance
+      %li#distance
