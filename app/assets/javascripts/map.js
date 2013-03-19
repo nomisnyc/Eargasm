@@ -1,7 +1,8 @@
-function display_map(lat, long, zoom)
+function display_map(lat, lng, zoom)
 {
+  console.log('Map created');
   var mapOptions = {
-    center: new google.maps.LatLng(lat, long),
+    center: new google.maps.LatLng(lat, lng),
     zoom: zoom,
     mapTypeId: google.maps.MapTypeId.ROADMAP
   };
@@ -10,9 +11,9 @@ function display_map(lat, long, zoom)
   map = new google.maps.Map(canvas, mapOptions);
 }
 
-function add_marker(lat, long, title)
+function add_marker(lat, lng, title)
 {
-  var latlng = new google.maps.LatLng(lat, long);
+  var latlng = new google.maps.LatLng(lat, lng);
   var marker = new google.maps.Marker({position: latlng, map: map, title: title});
 }
 
@@ -21,3 +22,4 @@ function clear_markers()
   _.each(markers, function(m){m.setMap(null);});
   markers = [];
 }
+

@@ -24,7 +24,7 @@
     <% topsongs = topsongs.sort_by {|i| i[1]}.reverse.take(5) %>
 
     <ol>
-      
+
 
 
       <h2>Top Songs of <%= @music.name %></h2>
@@ -66,20 +66,22 @@
 
 <p class = "artistbio hide">
   <%= paragraph.first %>
-</p><p class = "artistevent hide">
-  <div id="map_canvas" class = "hide"></div>
-        <script>
-              display_map(<%= @music.lat %>, <%= @music.lng %> , 10 );
-          //add_marker(<%= @music.ven_lat %>, <%=@music.ven_lng %>, <%= @music.ven_name %>);
-        </script>
+</p><p id = "artistevent" class= "hide">
+  <div id="map_canvas" class = "hide">
+    <%= hidden_field_tag 'map_center_lat', @music.lat %>
+     <%= hidden_field_tag 'map_center_lng', @music.lng %>
+     <%= hidden_field_tag 'music_venue_lat', @music.ven_lat %>
+     <%= hidden_field_tag 'music_venue_lng', @music.ven_lng %>
+    <%= hidden_field_tag 'music_venue_name', @music.ven_name %>
+    <%= hidden_field_tag 'music_location', @music.location %>
+    <%= hidden_field_tag 'music_distance', @music.distance %>
+  </div>
+
+             <li id='distance'> </li>
 
 
-          <script>
-            add_marker('<%= @music.ven_lat %>', '<%=@music.ven_lng %>', '<%=@music.ven_name %>');
-            </script>
 
 
-             <li id = 'distance' class = "hide">The distance between <%= @music.location %> and <%= @music.ven_name %> is <%= @music.distance %> miles. </li>
 
 </p></div></div>
 
