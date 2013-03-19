@@ -10,12 +10,13 @@
             - (c,d) = music.url.split('=',2)
             %td-music.id
             %br
-            %td.row Artist:  #{link_to(music.name, music)}
+            %td.row Artist:  #{link_to(music.name.titleize, music)}
             %br
             %td.row Song: #{link_to music.song_name.titleize, music.url, :class => "various fancybox.iframe"}
             %br
             %td.row Posted By:  #{music.posted_by}
             %br
-            %td#description Description: #{music.description}
-            %br
+            .description
+              %td Description: #{music.description}
+              %br
 

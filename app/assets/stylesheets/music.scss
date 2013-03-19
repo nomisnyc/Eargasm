@@ -152,11 +152,19 @@ white-space: pre-wrap;
 
 .shownav
 {
-  float: left;
+  
 }
 .showimg
 {
-  float: right;
   width: 400px;
 }
 
+.music_attributes .description
+{
+  margin: 10px auto;
+  font-size: 20px;
+  width: 500px;
+  height: 100px;
+  float: right;
+  padding: 10px 20px;
+}
