@@ -8,7 +8,7 @@ class UsersController < ApplicationController
   end
   def create
     User.create(params[:user])
-    redirect_to(users_path)
+    redirect_to(root_path)
   end
   def edit
     @user = User.find(params[:id])

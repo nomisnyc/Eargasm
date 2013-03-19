@@ -1,9 +1,9 @@
 <h2><%= @music.name %></h2>
 <%= link_to 'Back', musics_path %>
-<%= link_to 'Edit', edit_music_path(@music) %>
 
+<% if @auth %>
 <%= link_to 'Delete', @music, :method => :delete %>
-
+<% end %>
 
 <% Nestling.api_key = "DBBDMGNYLR3WRPCUX" %>
 
@@ -19,7 +19,6 @@
     <ol>
 
 
-
       <h2>Top Songs of <%= @music.name %></h2>
       <br>
      <% topsongs.each do |i| %>
@@ -30,9 +29,6 @@
     <br><hr/><br><div class="show">
 
             <br></br>
-
-
-
 
 
               <% api_key= 'DBBDMGNYLR3WRPCUX'
@@ -69,6 +65,11 @@
     <%= hidden_field_tag 'music_location', @music.location %>
     <%= hidden_field_tag 'music_distance', @music.distance %>
   </div>
+
+             <li id='distance'> </li>
+
+  </p></div></div>
+
 <li id='distance'> </li>
 </p></div></div>
  <% end %>

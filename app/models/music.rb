@@ -25,7 +25,7 @@
 #
 
 class Music < ActiveRecord::Base
-  attr_accessible :name, :song_name, :rating, :genre, :url, :post_by, :image_url, :bio, :location, :ven_name, :ven_lat, :ven_lng, :lat, :lng, :time, :description
+  attr_accessible :name, :song_name, :rating, :genre, :url, :post_by, :image_url, :bio, :location, :ven_name, :ven_lat, :ven_lng, :lat, :lng, :time, :description, :posted_by
   belongs_to :user, :inverse_of => :musics
   before_create :ratingstart
   before_save :categories
