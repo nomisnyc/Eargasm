@@ -3,7 +3,7 @@
         <li><%= link_to(' home ', root_path) %></li>
 
         <% if @auth %>
-            <%= render :partial => 'layouts/new_music' %>
+            <%= render :partial => 'layouts/new_music'%>
         <% end %>
 
         <li id= 'music'><%= link_to(' music ', musics_path) %></li>

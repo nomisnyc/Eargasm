@@ -43,7 +43,7 @@ border-radius: 40px;
   margin: 0px auto;
   font-size: 100px;
   font-family: 'Lato', sans-serif;
-  font-weight: 100; 
+  font-weight: 100;
   color: #fff;
   -webkit-text-stroke-width: 1px;
    -webkit-text-stroke-color: white;
@@ -67,12 +67,12 @@ font-size: 25px;
 opacity:.9;
 }
 
-.idxpic img{
-  height: 80px;
-  width: 120px;
+#idxpic img{
+  height: 100px;
+  float: left;
+  width: 140px;
   background-size: cover;
-  margin: 0;
-  padding: 0;
+
 }
 
 .main{
@@ -92,7 +92,7 @@ opacity:.9;
   width: 650px;
   font-size: 40px;
   font-family: 'Lato', sans-serif;
-  font-weight: 400; 
+  font-weight: 400;
 }
 
 #login
@@ -101,7 +101,7 @@ opacity:.9;
   width: 150px;
   font-size: 40px;
   font-family: 'Lato', sans-serif;
-  font-weight: 400; 
+  font-weight: 400;
 }
 
 #front2 img
@@ -123,4 +123,19 @@ h4
 
 .music_attributes{
   list-style-type: none;
+}
+.main li
+{
+float: left;
+}
+
+p.artistbio{
+  width: 650px;
+height: 400px;
+overflow:scroll;
+white-space: pre-wrap;
+}
+
+.left {
+  float: left;
 }

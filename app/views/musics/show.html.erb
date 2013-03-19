@@ -1,11 +1,4 @@
-
-<% content_for :header do %>
-  eargasm
-<% end %>
-
-<div class="container">
-
-  <h2><%= @music.name %></h2>
+<h2><%= @music.name %></h2>
 <%= link_to 'Back', musics_path %>
 <%= link_to 'Edit', edit_music_path(@music) %>
 
@@ -26,7 +19,6 @@
     <ol>
 
 
-
       <h2>Top Songs of <%= @music.name %></h2>
       <br>
      <% topsongs.each do |i| %>
@@ -37,9 +29,6 @@
     <br><hr/><br><div class="show">
 
             <br></br>
-
-
-
 
 
               <% api_key= 'DBBDMGNYLR3WRPCUX'
@@ -81,9 +70,9 @@
 
   </p></div></div>
 
-
+<li id='distance'> </li>
+</p></div></div>
  <% end %>
-
 </div></div></div>
 
     </ol>
