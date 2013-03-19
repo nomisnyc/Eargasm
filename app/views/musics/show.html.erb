@@ -1,11 +1,4 @@
-
-<% content_for :header do %>
-  eargasm
-<% end %>
-
-<div class="container">
-
-  <h2><%= @music.name %></h2>
+<h2><%= @music.name %></h2>
 <%= link_to 'Back', musics_path %>
 <%= link_to 'Edit', edit_music_path(@music) %>
 
@@ -76,18 +69,9 @@
     <%= hidden_field_tag 'music_location', @music.location %>
     <%= hidden_field_tag 'music_distance', @music.distance %>
   </div>
-
-             <li id='distance'> </li>
-
-
-
-
-
+<li id='distance'> </li>
 </p></div></div>
-
-
  <% end %>
-
 </div></div></div>
 
     </ol>

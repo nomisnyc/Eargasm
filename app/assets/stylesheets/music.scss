@@ -124,3 +124,14 @@ h4
 .music_attributes{
   list-style-type: none;
 }
+.main li
+{
+float: left;
+}
+
+p.artistbio{
+  width: 650px;
+height: 400px;
+overflow:scroll;
+white-space: pre-wrap;
+}
