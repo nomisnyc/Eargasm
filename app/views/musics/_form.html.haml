@@ -1,6 +1,6 @@
 .row
   .four.columns
-    = form_for @music do |f|
+    = form_for @music, :remote => true, do |f|
       = f.text_field :name, :placeholder => "name", :autofocus => true
       %br
       = f.text_field :song_name, :placeholder => "song title"
