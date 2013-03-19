@@ -68,16 +68,21 @@ opacity:.9;
 }
 
 .idxpic img{
-  height: 80px;
-  width: 120px;
+  height: 200px;
+  width: 300px;
   background-size: cover;
   margin: 0;
-  padding: 0;
+  padding: 10px auto;
+  float: right;
+  border-radius: 30px;
 }
 
 .main{
-  margin-bottom: 20px;
+  margin-bottom: 10px;
   border-bottom: 4px solid grey;
+  height: 230px;
+  padding: 5px auto;
+  font-size: 30px;
 }
 
 #since-nav
@@ -135,3 +140,9 @@ height: 400px;
 overflow:scroll;
 white-space: pre-wrap;
 }
+
+.hide
+{
+  display: hidden;
+}
+

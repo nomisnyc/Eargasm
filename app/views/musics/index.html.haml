@@ -1,23 +1,22 @@
-#musicloop.container
-  - @musics.each do |music|
-    %ul
-      %li{:style => "list-style: none; display: inline"}
+.row
+  .large-12.columns
+  #musicloop
+    - @musics.each do |music|
+      .table
+      %tr
         .main
-          %ul.music_attributes
-            %li.hide= music.id
-            %br
-            %li Artist: #{link_to(music.name, music)}
-            %br
-            %li Song: #{music.song_name}
-            %br
-            %li= link_to 'Delete', music, :method => :delete
-            %li= link_to 'Edit', edit_music_path(music)
+          .music_attributes
             .idxpic= image_tag(music.image_url)
             - (c,d) = music.url.split('=',2)
+            %td-music.id
             %br
-            = music.song_name
-            = link_to image_tag('fancy.jpg', music.url, :class => "various fancybox.iframe")
+            %td.row Artist:  #{link_to(music.name, music)}
             %br
-  = succeed "\u{a0}" do
-    %br
-  %br
+            %br
+            %td.row Song: #{link_to music.song_name.titleize, music.url, :class => "various fancybox.iframe"}
+            %br
+            %br
+            %td.row Description: #{music.description}
+            %br
+           
+          

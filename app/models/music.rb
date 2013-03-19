@@ -2,29 +2,30 @@
 #
 # Table name: musics
 #
-#  id         :integer          not null, primary key
-#  name       :string(255)
-#  genre      :string(255)
-#  song_name  :string(255)
-#  url        :text
-#  post_by    :string(255)
-#  rating     :integer          default(0)
-#  created_at :datetime         not null
-#  updated_at :datetime         not null
-#  user_id    :integer
-#  bio        :text
-#  image_url  :text
-#  location   :string(255)      default("nyc")
-#  lng        :float
-#  lat        :float
-#  ven_name   :string(255)
-#  ven_lat    :float
-#  ven_lng    :float
-#  time       :string(255)
+#  id          :integer          not null, primary key
+#  name        :string(255)
+#  genre       :string(255)
+#  song_name   :string(255)
+#  url         :text
+#  post_by     :string(255)
+#  rating      :integer          default(0)
+#  created_at  :datetime         not null
+#  updated_at  :datetime         not null
+#  user_id     :integer
+#  bio         :text
+#  image_url   :text
+#  location    :string(255)      default("nyc")
+#  lng         :float
+#  lat         :float
+#  ven_name    :string(255)
+#  ven_lat     :float
+#  ven_lng     :float
+#  time        :string(255)
+#  description :text
 #
 
 class Music < ActiveRecord::Base
-  attr_accessible :name, :song_name, :rating, :genre, :url, :post_by, :image_url, :bio, :location, :ven_name, :ven_lat, :ven_lng, :lat, :lng, :time
+  attr_accessible :name, :song_name, :rating, :genre, :url, :post_by, :image_url, :bio, :location, :ven_name, :ven_lat, :ven_lng, :lat, :lng, :time, :description
   belongs_to :user, :inverse_of => :musics
   before_create :ratingstart
   before_save :categories

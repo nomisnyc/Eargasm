@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130312055610) do
+ActiveRecord::Schema.define(:version => 20130319035414) do
 
   create_table "homes", :force => true do |t|
     t.datetime "created_at", :null => false
@@ -24,19 +24,20 @@ ActiveRecord::Schema.define(:version => 20130312055610) do
     t.string   "song_name"
     t.text     "url"
     t.string   "post_by"
-    t.integer  "rating",     :default => 0
-    t.datetime "created_at",                    :null => false
-    t.datetime "updated_at",                    :null => false
+    t.integer  "rating",      :default => 0
+    t.datetime "created_at",                     :null => false
+    t.datetime "updated_at",                     :null => false
     t.integer  "user_id"
     t.text     "bio"
     t.text     "image_url"
-    t.string   "location",   :default => "nyc"
+    t.string   "location",    :default => "nyc"
     t.float    "lng"
     t.float    "lat"
     t.string   "ven_name"
     t.float    "ven_lat"
     t.float    "ven_lng"
     t.string   "time"
+    t.text     "description"
   end
 
   create_table "users", :force => true do |t|

@@ -33,7 +33,6 @@ class MusicsController < ApplicationController
     @music.url = url
     @music.save
     redirect_to(musics_path)
-
   end
 
   def update
