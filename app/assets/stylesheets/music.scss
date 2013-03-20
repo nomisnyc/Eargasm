@@ -72,19 +72,24 @@ opacity:.9;
 }
 
 .idxpic img{
-  max-height: 200px;
-  width: auto;
-  background-size: cover;
-  margin: 0;
-  padding: 10px auto;
-  float: right;
+  max-height: 250px;
+  margin: 10px auto;
   border-radius: 30px;
   border: 1px solid grey;
+  width: auto;
+}
+
+.indexvid
+{
+  padding: 10px 30px;
+  margin: 10px auto;
+  width: 400px;
+  height: 200px;
 }
 
 .main{
   margin-bottom: 10px;
-  height: 230px;
+  height: 300px;
   padding: 5px auto;
   font-size: 22px;
   border-bottom: 4px dotted #666666;
@@ -173,15 +178,15 @@ white-space: pre-wrap;
   border-radius: 30px;
 }
 
-.music_attributes .description
+.description
 {
   font-size: 20px;
-  width: 550px;
+  width: auto;
   height: 100px;
-  float: right;
-  padding: 10px 40px;
+  padding: 10px 10px;
   margin: 10px auto;
-  margin-top: -1.5em;
+  line-height: 25px;
+
 }
 
 .artistlink
@@ -207,3 +212,4 @@ ul
   height: 100px;
   width: 100px;
 }
+

@@ -4,24 +4,25 @@
     .main
       .row     
         .large-4.columns
-          %td Artist:  #{link_to(music.name.titleize, music)}
+          .indexvid 
+            %br
+            %td Artist:  #{link_to(music.name.titleize, music)}
+            %br
+            %td Song: #{music.song_name.titleize }
+            %br
+            %br
+            %td #{link_to image_tag('fancy.jpg', :class => 'fancythumb'), music.url, :class => "various fancybox.iframe"}
+
+        .large-4.columns
           %br
-          %td Song: #{music.song_name }
-          %br
-          %td Posted By:  #{music.posted_by.titleize}
-          %br
-          %td #{link_to image_tag('fancy.jpg', :class => 'fancythumb'), music.url, :class => "various fancybox.iframe"}
-           
+          .description
+            %td <em><strong>Description:</strong> #{music.description} </em>
+            %br
+            %br
+            \-- #{music.posted_by.titleize} 
 
         .large-4.columns
           .music_attributes
             .idxpic= image_tag(music.image_url)
             - (c,d) = music.url.split('=',2)
             %td-music.id
-
-
-        .large-4.columns
-          %br
-          .description
-            %td Description: #{music.description}
-        
