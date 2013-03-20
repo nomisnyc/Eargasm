@@ -42,6 +42,15 @@ class Music < ActiveRecord::Base
     bios = response['biographies'].map { |a| a['text']}
     largestbio = bios.group_by(&:size).max.last
     self.bio = largestbio.split("\r\n").join(" ")
+
+    response2= HTTParty.get(url2)['response']['images'][0]['url']
+  end
+
+  def image_array
+    api_key = 'DBBDMGNYLR3WRPCUX'
+    url2 = "http://developer.echonest.com/api/v4/artist/images?api_key=#{api_key}&name=#{self.name.gsub(' ','+')}&format=json&results=10"
+    response2= HTTParty.get(url2)['response']['images']
+    response2.map{|i| i["url"] }.shuffle!
   end
 
   def ratingstart
@@ -51,6 +60,18 @@ class Music < ActiveRecord::Base
   def atrak
     YoutubeSearch.search(self.name).first(10).map{|i| {'title' => i['title'], 'video_id' => i['video_id'] }}
   end
+
+  def topsongs
+    Nestling.api_key = "DBBDMGNYLR3WRPCUX"
+    nestling = Nestling.new
+    unabridged = nestling.song.search(:artist => self.name, :bucket => :song_hotttnesss)
+    topsongs = []
+    unabridged.each { |i| topsongs.push([i[:title], i[:song_hotttnesss]]) if i[:song_hotttnesss] }
+    topsongs.sort_by {|i| i[1]}.reverse.take(5)
+  end
+
+
+
 
   def info
     remote = Songkickr::Remote.new "1mwQluDndEhDhhJl"

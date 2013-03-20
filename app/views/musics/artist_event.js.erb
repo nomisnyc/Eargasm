@@ -1,0 +1,15 @@
+$('.artist_section').empty();
+$('.artist_event').append('<%=j render :partial =>'artist_event' %>');
+
+var map_center_lat = parseFloat($('#map_center_lat').val());
+var map_center_lng = parseFloat($('#map_center_lng').val());
+var music_venue_lat = parseFloat($('#music_venue_lat').val());
+var music_venue_lng = parseFloat($('#music_venue_lng').val());
+var music_venue_name = $('#music_venue_name').val();
+var music_location = $('#music_location').val();
+var music_distance = $('#music_distance').val();
+
+display_map(music_venue_lat, music_venue_lng , 11 );
+add_marker(map_center_lat,  map_center_lng , 'your crib' );
+
+add_marker(music_venue_lat, music_venue_lng, music_venue_name);

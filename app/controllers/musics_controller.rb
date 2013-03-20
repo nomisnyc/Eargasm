@@ -16,6 +16,23 @@ class MusicsController < ApplicationController
     @music = Music.find(params[:id])
   end
 
+  def bio
+    @music = Music.find(params[:id])
+  end
+
+  def showhot
+    @music = Music.find(params[:id])
+  end
+
+  def artist_img
+    @music = Music.find(params[:id])
+  end
+
+  def artist_event
+    @music = Music.find(params[:id])
+  end
+
+
   def create
     @music = Music.create(params[:music])
     id= YoutubeSearch.search(@music.name + @music.song_name).first['video_id']

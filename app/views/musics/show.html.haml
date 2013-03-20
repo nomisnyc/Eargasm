@@ -1,50 +1,31 @@
-- Nestling.api_key = "DBBDMGNYLR3WRPCUX"
-- nestling = Nestling.new
-- unabridged = nestling.song.search(:artist => @music.name, :bucket => :song_hotttnesss)
-- topsongs = []
-- unabridged.each { |i| topsongs.push([i[:title], i[:song_hotttnesss]]) if i[:song_hotttnesss] }
-- topsongs = topsongs.sort_by {|i| i[1]}.reverse.take(5)
 
 .row
   .large-3.columns
-    %h3= @music.name.titleize
+    %br
     = link_to 'Back', musics_path
     - if @auth
       = link_to ' Delete', @music, :method => :delete
     %br
     %br
-    = button_tag ' Biography ', :id => 'artist_bio', :class => 'button radius success tiny'
+    = link_to ' Biography ', bio_music_path(@music), :remote => true, :id => 'artist_bio', :class => 'button_nav_show'
     %br
-    = button_tag ' Images ', :id => 'artist_img', :class => 'button radius success tiny'
+    = link_to ' Images ', artist_img_music_path(@music) , :remote => true, :id => 'artist_img', :class => 'button_nav_show'
     %br
-    = button_tag ' Top Songs ', :id => 'artist_song', :class => 'button radius success tiny'
+    = link_to ' Top Songs ', showhot_music_path(@music), :remote => true, :id => 'artist_song', :class => 'button_nav_show'
     %br
-    = button_tag ' Events ', :id => 'artist_event', :class => 'button radius success tiny'
+    = link_to ' Events ', artist_event_music_path(@music), :remote => true, :id => 'artist_event', :class => 'button_nav_show'
+
 
   .large-9.columns
 
     %h2
       = @music.name.titleize
 
-    %h3.showhot.hide
-      = "Top Songs of #{@music.name.titleize}"
-      - topsongs.each do |i|
-        %p= "#{i[0]} SongVibes:  #{i[1]}"
+    %h3.showhot.artist_section
 
-    .artist_img.hide
-      = image_tag(@music.image_url)
+    .artist_img.artist_section
+      = render :partial =>'artist_img'
+    .artist_bio.artist_section
 
-    .artist_bio.hide
-      %p.artistbio
-        =@music.bio
+    .artist_event.artist_section
 
-    .artist_event.hide
-      #map_canvas
-        = hidden_field_tag 'map_center_lat', @music.lat
-        = hidden_field_tag 'map_center_lng', @music.lng
-        = hidden_field_tag 'music_venue_lat', @music.ven_lat
-        = hidden_field_tag 'music_venue_lng', @music.ven_lng
-        = hidden_field_tag 'music_venue_name', @music.ven_name
-        = hidden_field_tag 'music_location', @music.location
-        = hidden_field_tag 'music_distance', @music.distance
-        #eventinfo

@@ -1,0 +1,3 @@
+= "Top Songs of #{@music.name.titleize}"
+- @music.topsongs.each do |i|
+  %p= "#{i[0]} SongVibes:  #{i[1]}"

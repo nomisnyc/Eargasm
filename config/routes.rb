@@ -6,7 +6,17 @@ resources :users, :only => [:index, :new, :create]
   post '/login' => 'session#create'
   delete '/login' => 'session#destroy'
 
-  resources :musics #do
+  resources :musics do
+    member do
+      get :bio
+      get :showhot
+      get :artist_img
+      get :artist_event
+    end
+  end
+
+
+  #do
     # collection do
     #   get "counter"
     # end
