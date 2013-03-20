@@ -231,11 +231,11 @@ ul
   background-color: #000000;
   border-radius: 10px;
   padding: 2px 2px;
-  margin: 5px 5px;
+  margin: 5px auto;
   -moz-box-shadow: 0 0 2px 2px #888;
   -webkit-box-shadow: 0 0 2px 2px#888;
   box-shadow: 0 0 2px 2px #888;
-  width: 180px;
+  width: 250px;
   color: #0099cc;
   font-family: 'Lato', sans-serif;
   font-weight: 400;
@@ -262,3 +262,37 @@ ul
   font-size: 20px;
 }
 
+.showscrollpics img{
+  max-width: 700px;
+  margin: auto auto;
+  padding: 5px 5px;
+  line-height: 800px;
+  vertical-align: center;
+}
+
+.showBD a{
+  color: #0033CC;
+  font-size: 22px;
+}
+
+#showNavContainer{
+height: 200px;
+width: 160px;
+opacity: .5;
+}
+
+#showNavContainer a{
+  padding: 2px 2px;
+  margin: 5px auto;
+  color: #0099cc;
+  font-family: 'Lato', sans-serif;
+  font-weight: 400;
+  opacity: .5;
+  border: 1px solid black;
+  font-size: 26px;
+  }
+
+p.songvibes {
+font-size: 22px;
+color: red;
+}

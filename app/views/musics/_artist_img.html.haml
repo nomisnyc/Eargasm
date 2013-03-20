@@ -1,1 +1,20 @@
-= image_tag(@music.image_url)
+/ .orbit-container
+/   %ul.orbit-slides-container
+/     -@music.image_array.each do |i|
+/       %li
+/         =image_tag(i)
+
+
+
+
+/ <ul data-orbit>
+/   -@music.image_array.each do |i|
+/   <li>
+/     = image_tag(i)
+/   </li>
+/ </ul>
+
+%ul{"data-orbit" => ""}
+  -@music.image_array.each do |i|
+    %li.showscrollpics
+      = image_tag(i)

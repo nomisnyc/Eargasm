@@ -2,18 +2,26 @@
 .row
   .large-3.columns
     %br
-    = link_to 'Back', musics_path
-    - if @auth
-      = link_to ' Delete', @music, :method => :delete
+    .showBD
+      = link_to 'Back', musics_path
+      - if @auth
+        = link_to ' Delete ', @music, :method => :delete
     %br
     %br
-    = link_to ' Biography ', bio_music_path(@music), :remote => true, :id => 'artist_bio', :class => 'button_nav_show'
     %br
-    = link_to ' Images ', artist_img_music_path(@music) , :remote => true, :id => 'artist_img', :class => 'button_nav_show'
-    %br
-    = link_to ' Top Songs ', showhot_music_path(@music), :remote => true, :id => 'artist_song', :class => 'button_nav_show'
-    %br
-    = link_to ' Events ', artist_event_music_path(@music), :remote => true, :id => 'artist_event', :class => 'button_nav_show'
+    #showNavContainer
+      %br
+      %br
+      = link_to ' Biography ', bio_music_path(@music), :remote => true, :id => 'artist_bio', :class => 'button_nav_show'
+      %br
+      %br
+      = link_to ' Images ', artist_img_music_path(@music) , :remote => true, :id => 'artist_img', :class => 'button_nav_show'
+      %br
+      %br
+      = link_to ' Top Songs ', showhot_music_path(@music), :remote => true, :id => 'artist_song', :class => 'button_nav_show'
+      %br
+      %br
+      = link_to ' Events ', artist_event_music_path(@music), :remote => true, :id => 'artist_event', :class => 'button_nav_show'
 
 
   .large-9.columns

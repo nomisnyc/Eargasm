@@ -6,4 +6,5 @@
   = hidden_field_tag 'music_venue_name', @music.ven_name
   = hidden_field_tag 'music_location', @music.location
   = hidden_field_tag 'music_distance', @music.distance
-  #eventinfo
+#eventinfo
+  %h3= "The next performance of #{@music.name} will be at #{@music.ven_name}."
