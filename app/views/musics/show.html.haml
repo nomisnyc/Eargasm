@@ -1,30 +1,52 @@
-%h2-music.name
-
-.row
-  .large-3.columns
-    %ul#since-nav
-      %li= button_tag 'Biography', :id => 'artistbio', :class => 'tiny button radius success tiny'
-      %li= button_tag 'Events', :id => 'artistevent', :class => 'button radius success tiny' 
-      %li= button_tag 'Pictures', :id => 'artistpic', :class => 'button radius success tiny' 
-      %li= button_tag 'Events', :id => 'artistevent', :class => 'button radius success tiny' 
-
-  .large-9.columns
-    .artistpic
-    = image_tag('musicvid2.jpg')
-
-  .large-9.columns
-    .artistbio
-    %p 
-      truck chambray yr, ugh mcsweeney's nulla cupidatat pitchfork selvage et you probably haven't heard of them DIY bespoke deserunt. Sustainable farm-to-table vice, labore pug consectetur magna ugh craft beer keffiyeh williamsburg. Fashion axe leggings master cleanse, tofu 3 wolf moon put a bird on it jean shorts labore bespoke odd future culpa trust fund. Cupidatat forage PBR godard, wes anderson typewriter et. Twee odd future irony selvage pork belly. Swag eiusmod delectus squid butcher pitchfork, whatever synth banh mi four loko chambray literally dolore salvia. Eu labore pariatur vice esse literally viral, stumptown seitan magna ethnic locavore deserunt.
-
-  .large-9.columns
-    .artistbio
-    %p 
-      Food truck chambray yr, ugh mcsweeney's nulla cupidatat pitchfork selvage et you probably haven't heard of them DIY bespoke deserunt. Sustainable farm-to-table vice, labore pug consectetur magna ugh craft beer keffiyeh williamsburg. Fashion axe leggings master cleanse, tofu 3 wolf moon put a bird on it jean shorts labore bespoke odd future culpa trust fund. Cupidatat forage PBR godard, wes anderson typewriter et. Twee odd future irony selvage pork belly. Swag eiusmod delectus squid butcher pitchfork, whatever synth banh mi four loko chambray literally dolore salvia. Eu labore pariatur vice esse literally viral, stumptown seitan magna ethnic locavore deserunt.
-
-  .large-9.columns
-    .artistbio
-    %p 
-      Food truck chambray yr, ugh mcsweeney's nulla cupidatat pitchfork selvage et you probably haven't heard of them DIY bespoke deserunt. Sustainable farm-to-table vice, labore pug consectetur magna ugh craft beer keffiyeh williamsburg. Fashion axe leggings master cleanse, tofu 3 wolf moon put a bird on it jean shorts labore bespoke odd future culpa trust fund. Cupidatat forage PBR godard, wes anderson typewriter et. Twee odd future irony selvage pork belly. Swag eiusmod delectus squid butcher pitchfork, whatever synth banh mi four loko chambray literally dolore salvia. Eu labore pariatur vice esse literally viral, stumptown seitan magna ethnic locavore deserunt.
-
-
+- Nestling.api_key = "DBBDMGNYLR3WRPCUX"
+- nestling = Nestling.new
+- unabridged = nestling.song.search(:artist => @music.name, :bucket => :song_hotttnesss)
+- topsongs = []
+- unabridged.each { |i| topsongs.push([i[:title], i[:song_hotttnesss]]) if i[:song_hotttnesss] }
+/
+  \#scapes out those two categories.
+  \#takes out nil
+- topsongs = topsongs.sort_by {|i| i[1]}.reverse.take(5)
+%ul
+  %h2= @music.name.titleize
+  = link_to 'Back', musics_path
+  - if @auth
+    = link_to 'Delete', @music, :method => :delete
+  %h3
+    Top Songs of #{@music.name.titleize}
+  %br/
+  - topsongs.each do |i|
+    %li
+      %em>= i[0]
+      \-        Hotness Rating: #{i[1]}
+  .show
+    - api_key= 'DBBDMGNYLR3WRPCUX'
+    - artist = @music.name.gsub(' ', '+')
+    - url2 = "http://developer.echonest.com/api/v4/artist/images?api_key=#{api_key}&name=#{artist}&format=json&results=4"
+    - url = "http://developer.echonest.com/api/v4/artist/biographies?api_key=#{api_key}&name=#{artist}&format=json&results=4"
+    - response = HTTParty.get(url)['response']
+    - response2= HTTParty.get(url2)['response']['images'][2]['url']
+    = button_tag ' Biography ', :id => 'artist_bio', :class => 'button radius success tiny'
+    = button_tag ' Events ', :id => 'artist_event', :class => 'button radius success tiny'
+    .showimg
+      <img src= #{response2}>
+    %br/
+    %br/
+    - bio = response['biographies'][0]['text']
+    - bios = response['biographies'].map { |a| a['text'] }
+    - largestbio = bios.group_by(&:size).max.last
+    - largestbio.split("\r\n").each do |paragraph|
+      .shownav
+        %p.artistbio.hide
+          = paragraph.first
+        %p#artistevent.hide
+        #map_canvas.hide
+          = hidden_field_tag 'map_center_lat', @music.lat
+          = hidden_field_tag 'map_center_lng', @music.lng
+          = hidden_field_tag 'music_venue_lat', @music.ven_lat
+          = hidden_field_tag 'music_venue_lng', @music.ven_lng
+          = hidden_field_tag 'music_venue_name', @music.ven_name
+          = hidden_field_tag 'music_location', @music.location
+          = hidden_field_tag 'music_distance', @music.distance
+      %li#distance
+  %li#distance

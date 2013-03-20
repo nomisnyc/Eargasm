@@ -1,25 +1,15 @@
 class MusicsController < ApplicationController
 
-  def counter
-    @music = Music.find(params[:id])
-    @music.rating += 1
-    @music.save
-    redirect_to(musics_path)
-  end
-
-
   def index
     @musics = Music.order(:name)
   end
 
   def show
     @music = Music.find(params[:id])
-
   end
 
   def new
     @music = Music.new
-
   end
 
   def edit

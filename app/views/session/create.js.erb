@@ -4,5 +4,3 @@ $('#container h3').fadeOut(2000, function(){ $('#container').remove(); });
 $('#logbutton').empty().append('<%=j link_to(@auth.name, '/login', :method => :delete) %>');
 $('#newuser').remove();
 $('#music').before('<%=j render :partial => 'layouts/new_music' %>');
-
-

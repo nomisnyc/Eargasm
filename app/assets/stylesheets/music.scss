@@ -30,7 +30,7 @@ body{
 }
 
 #container{
-width: 80%;
+width: 1100px;
 background: url('conback.png');
 background-repeat: repeat;
 margin: 0 auto;
@@ -78,14 +78,16 @@ opacity:.9;
   padding: 10px auto;
   float: right;
   border-radius: 30px;
+  border: 1px solid grey;
 }
 
 .main{
   margin-bottom: 10px;
-  border-bottom: 4px solid grey;
   height: 230px;
   padding: 5px auto;
   font-size: 22px;
+  border-bottom: 4px dotted #666666;
+  border-radius: 10px 0px 10px 0px;
 }
 
 #since-nav
@@ -131,14 +133,17 @@ h4
 
 .music_attributes{
   list-style-type: none;
+  margin: 10px auto;
+  padding: 10px 20px;
 }
 .main li
 {
 float: left;
 }
 
-p.artistbio{
-  width: 650px;
+p.artistbio
+{
+width: 800px;
 height: 400px;
 overflow:scroll;
 white-space: pre-wrap;
@@ -147,4 +152,57 @@ white-space: pre-wrap;
 .hide
 {
   display: hidden;
+}
+
+.shownav
+{
+  
+}
+
+.show
+{
+  width: 600px;
+  padding: 5px 25px;
+  margin: 5px auto;
+
+}
+.showimg
+{
+  width: 400px;
+  border-radius: 30px;
+}
+
+.music_attributes .description
+{
+  font-size: 20px;
+  width: 550px;
+  height: 100px;
+  float: right;
+  padding: 10px 40px;
+  margin: 10px auto;
+  margin-top: -1.5em;
+}
+
+.artistlink
+{
+  a:link    {color:#000066;}
+a:visited {color:#000066;}
+}
+
+ul
+{
+  list-style: none;
+}
+
+.homepagetext
+{
+  font-family: 'Lato', sans-serif;
+  font-weight: 400;
+  font-size: 26px;
+}
+
+.fancythumb
+{
+  height: 100px;
+  width: 100px;
 }

@@ -81,7 +81,7 @@ class Music < ActiveRecord::Base
         self.ven_name = event_results.first.venue.display_name
         self.time = event_results.first.start
         event_results.first.location
-
+        binding.pry
         self.ven_lat= event_results.first.location.lat
         self.ven_lng= event_results.first.location.lng
       end
