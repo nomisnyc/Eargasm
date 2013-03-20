@@ -15,6 +15,10 @@
     %br
     = button_tag ' Biography ', :id => 'artist_bio', :class => 'button radius success tiny'
     %br
+    = button_tag ' Images ', :id => 'artist_img', :class => 'button radius success tiny'
+    %br
+    = button_tag ' Top Songs ', :id => 'artist_song', :class => 'button radius success tiny'
+    %br
     = button_tag ' Events ', :id => 'artist_event', :class => 'button radius success tiny'
   
 
@@ -25,20 +29,19 @@
       = @music.name.titleize
       
 
-    %h3
-      = "Top Songs of #{@music.name.titleize}"
-      
-    - topsongs.each do |i|
-      %p= "#{i[0]} SongVibes:  #{i[1]}" 
+    %h3.showhot.hide
+      = "Top Songs of #{@music.name.titleize}" 
+      - topsongs.each do |i|
+        %p= "#{i[0]} SongVibes:  #{i[1]}" 
 
-    .showimg
+    .artist_img.hide
       = image_tag(@music.image_url)
        
-    .shownav
+    .artist_bio.hide
       %p.artistbio
         =@music.bio
 
-    #artistevent
+    .artist_event.hide
       #map_canvas
         = hidden_field_tag 'map_center_lat', @music.lat
         = hidden_field_tag 'map_center_lng', @music.lng
