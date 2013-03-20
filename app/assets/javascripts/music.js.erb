@@ -3,9 +3,7 @@ var map;
 $(function(){
 // $('#show_bio').click(_bio);
 // $('hide_bio').click(hide_bio);
-$('h2.subheader').click(demo);
 
-$('#musicloop').on('click', '.upvote', up_vote);
 $('#artist_bio').click(hide_event);
 $('#artist_location').click(toggle_location);
 $('#artist_event').click(show_event);
@@ -64,7 +62,7 @@ function toggle_event()
 }
 
 function show_event(){
-$('#artistevent').show();
+$('.artist_event').show();
   $('.artistbio').hide();
   $('#map_canvas').show();
   $('#distance').show();
@@ -78,8 +76,8 @@ $('#artistevent').show();
         var music_location = $('#music_location').val();
         var music_distance = $('#music_distance').val();
 
-       display_map(map_center_lat, map_center_lng , 11 );
-      add_marker(map_center_lat,  map_center_lng , 'your crib' );
+       display_map(music_venue_lat, music_venue_lng , 11 );
+       add_marker(map_center_lat,  map_center_lng , 'your crib' );
 
        add_marker(music_venue_lat, music_venue_lng, music_venue_name);
 
