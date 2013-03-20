@@ -12,10 +12,9 @@
             %br
             %td.row Artist:  #{link_to(music.name, music)}
             %br
-            %td.row Song: #{link_to music.song_name.titleize, music.url, :class => "various fancybox.iframe"}
+            %td.row Song: #{link_to image_tag('rails.png'), music.url, :class => "various fancybox.iframe"}
             %br
             %td.row Posted By:  #{music.posted_by}
             %br
             %td#description Description: #{music.description}
             %br
-
