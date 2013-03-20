@@ -1,30 +1,51 @@
-%h2-music.name
+- Nestling.api_key = "DBBDMGNYLR3WRPCUX"
+- nestling = Nestling.new
+- unabridged = nestling.song.search(:artist => @music.name, :bucket => :song_hotttnesss)
+- topsongs = []
+- unabridged.each { |i| topsongs.push([i[:title], i[:song_hotttnesss]]) if i[:song_hotttnesss] }
+- topsongs = topsongs.sort_by {|i| i[1]}.reverse.take(5)
 
 .row
   .large-3.columns
-    %ul#since-nav
-      %li= button_tag 'Biography', :id => 'artistbio', :class => 'tiny button radius success tiny'
-      %li= button_tag 'Events', :id => 'artistevent', :class => 'button radius success tiny' 
-      %li= button_tag 'Pictures', :id => 'artistpic', :class => 'button radius success tiny' 
-      %li= button_tag 'Events', :id => 'artistevent', :class => 'button radius success tiny' 
+    %h3= @music.name.titleize
+    = link_to 'Back', musics_path
+    - if @auth
+      = link_to ' Delete', @music, :method => :delete
+    %br  
+    %br
+    = button_tag ' Biography ', :id => 'artist_bio', :class => 'button radius success tiny'
+    %br
+    = button_tag ' Events ', :id => 'artist_event', :class => 'button radius success tiny'
+  
+
 
   .large-9.columns
-    .artistpic
-    = image_tag('musicvid2.jpg')
+    
+    %h2
+      = @music.name.titleize
+      
 
-  .large-9.columns
-    .artistbio
-    %p 
-      truck chambray yr, ugh mcsweeney's nulla cupidatat pitchfork selvage et you probably haven't heard of them DIY bespoke deserunt. Sustainable farm-to-table vice, labore pug consectetur magna ugh craft beer keffiyeh williamsburg. Fashion axe leggings master cleanse, tofu 3 wolf moon put a bird on it jean shorts labore bespoke odd future culpa trust fund. Cupidatat forage PBR godard, wes anderson typewriter et. Twee odd future irony selvage pork belly. Swag eiusmod delectus squid butcher pitchfork, whatever synth banh mi four loko chambray literally dolore salvia. Eu labore pariatur vice esse literally viral, stumptown seitan magna ethnic locavore deserunt.
+    %h3
+      = "Top Songs of #{@music.name.titleize}"
+      
+    - topsongs.each do |i|
+      %p= "#{i[0]} SongVibes:  #{i[1]}" 
 
-  .large-9.columns
-    .artistbio
-    %p 
-      Food truck chambray yr, ugh mcsweeney's nulla cupidatat pitchfork selvage et you probably haven't heard of them DIY bespoke deserunt. Sustainable farm-to-table vice, labore pug consectetur magna ugh craft beer keffiyeh williamsburg. Fashion axe leggings master cleanse, tofu 3 wolf moon put a bird on it jean shorts labore bespoke odd future culpa trust fund. Cupidatat forage PBR godard, wes anderson typewriter et. Twee odd future irony selvage pork belly. Swag eiusmod delectus squid butcher pitchfork, whatever synth banh mi four loko chambray literally dolore salvia. Eu labore pariatur vice esse literally viral, stumptown seitan magna ethnic locavore deserunt.
+    .showimg
+      = image_tag(@music.image_url)
+       
+    .shownav
+      %p.artistbio
+        =@music.bio
 
-  .large-9.columns
-    .artistbio
-    %p 
-      Food truck chambray yr, ugh mcsweeney's nulla cupidatat pitchfork selvage et you probably haven't heard of them DIY bespoke deserunt. Sustainable farm-to-table vice, labore pug consectetur magna ugh craft beer keffiyeh williamsburg. Fashion axe leggings master cleanse, tofu 3 wolf moon put a bird on it jean shorts labore bespoke odd future culpa trust fund. Cupidatat forage PBR godard, wes anderson typewriter et. Twee odd future irony selvage pork belly. Swag eiusmod delectus squid butcher pitchfork, whatever synth banh mi four loko chambray literally dolore salvia. Eu labore pariatur vice esse literally viral, stumptown seitan magna ethnic locavore deserunt.
+    #artistevent
+      #map_canvas
+        = hidden_field_tag 'map_center_lat', @music.lat
+        = hidden_field_tag 'map_center_lng', @music.lng
+        = hidden_field_tag 'music_venue_lat', @music.ven_lat
+        = hidden_field_tag 'music_venue_lng', @music.ven_lng
+        = hidden_field_tag 'music_venue_name', @music.ven_name
+        = hidden_field_tag 'music_location', @music.location
+        = hidden_field_tag 'music_distance', @music.distance
 
-
+        
