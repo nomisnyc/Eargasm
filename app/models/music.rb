@@ -22,12 +22,14 @@
 #  ven_lng     :float
 #  time        :string(255)
 #  description :text
+#  posted_by   :string(255)
 #
 
 class Music < ActiveRecord::Base
   attr_accessible :name, :song_name, :rating, :genre, :url, :post_by, :image_url, :bio, :location, :ven_name, :ven_lat, :ven_lng, :lat, :lng, :time, :description, :posted_by
   belongs_to :user, :inverse_of => :musics
   before_create :ratingstart
+  has_many :songs
   before_save :categories
   before_save :info
  # before_save :geocode
@@ -62,12 +64,12 @@ class Music < ActiveRecord::Base
   end
 
   def topsongs
-    Nestling.api_key = "DBBDMGNYLR3WRPCUX"
-    nestling = Nestling.new
-    unabridged = nestling.song.search(:artist => self.name, :bucket => :song_hotttnesss)
-    topsongs = []
-    unabridged.each { |i| topsongs.push([i[:title], i[:song_hotttnesss]]) if i[:song_hotttnesss] }
-    topsongs.sort_by {|i| i[1]}.reverse.take(5)
+    client = Soundcloud.new(:client_id => ENV["SC_CLIENT"])
+    tracks = client.get('/tracks',:q => self.name)
+    five = tracks.sort_by{|i| (i["playback_count"] * 0.4) + (i["favoritings_count"] * 0.6) }.reverse.take(5)
+    five.each do |i|
+      self.songs << Song.create(title: i["title"], song_ident: i["id"], description: i["description"])
+    end
   end
 
 
@@ -111,6 +113,14 @@ class Music < ActiveRecord::Base
   def distance
       Geocoder::Calculations.distance_between([self.lat,self.lng], [self.ven_lat, self.ven_lng]).round(3)
   end
+
+
+def soundcloudget
+
+
+end
+
+
 
 
 

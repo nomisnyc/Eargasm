@@ -22,6 +22,7 @@
 #  ven_lng     :float
 #  time        :string(255)
 #  description :text
+#  posted_by   :string(255)
 #
 
 require 'test_helper'

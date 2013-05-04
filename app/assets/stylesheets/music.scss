@@ -1,4 +1,6 @@
 // @import url(http://fonts.googleapis.com/css?family=Lato:100,300,400,700,100italic,300italic,400italic);
+@import url(http://fonts.googleapis.com/css?family=Monda);
+
 
 #map_canvas
 {
@@ -310,4 +312,13 @@ box-shadow: inset 0 0 10px 10px #888;
   max-width: 700px;
 }
 
+iframe.soundclound{
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.sound_title{
+  color: #f47835;
+  font-family: "Monda";
+}
 

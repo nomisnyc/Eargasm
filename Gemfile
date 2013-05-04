@@ -15,6 +15,7 @@ gem 'bandsintown'
 gem 'songkickr'
 gem 'json'
 gem 'geocoder'
+gem 'soundcloud'
 
 group :assets do
   gem 'sass-rails',   '~> 3.2.3'

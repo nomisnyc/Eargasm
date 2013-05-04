@@ -22,6 +22,7 @@ class MusicsController < ApplicationController
 
   def showhot
     @music = Music.find(params[:id])
+    @songs = @music.topsongs
   end
 
   def artist_img

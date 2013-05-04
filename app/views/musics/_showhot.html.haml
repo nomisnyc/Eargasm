@@ -1,6 +1,6 @@
-
-= "Top Songs of #{@music.name.titleize}"
+.sound_title= "Soundcloud <3s #{@music.name.titleize}"
 %br
 %br
-- @music.topsongs.each do |i|
-  %p.songvibes= "#{i[0]}     - SongVibes:  #{i[1]}"
+-@songs.each do |i|
+  %iframe.soundcloud{:frameborder => "no", :height => "166", :scrolling => "no", :src => "https://w.soundcloud.com/player/?url=http%3A%2F%2Fapi.soundcloud.com%2Ftracks%2F#{i.id}", :width => "100%"}
+  %br
